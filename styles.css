@@ -1932,6 +1932,45 @@ input:focus, select:focus, textarea:focus {
         flex-direction: column;
         gap: 1rem;
     }
+    
+    /* Mobile navigation button styling */
+    .nav-contact .phone-btn,
+    .nav-contact .cta-btn {
+        width: 100%;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 8px;
+        text-align: center;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+    }
+    
+    /* Call Now button - white theme */
+    .nav-contact .phone-btn {
+        background: #ffffff;
+        color: #000000;
+        border: 2px solid #000000;
+    }
+    
+    .nav-contact .phone-btn:hover {
+        background: #000000;
+        color: #ffffff;
+        border-color: #ffffff;
+    }
+    
+    /* Book Now button - black theme */
+    .nav-contact .cta-btn {
+        background: #000000;
+        color: #ffffff;
+        border: 2px solid #ffffff;
+    }
+    
+    .nav-contact .cta-btn:hover {
+        background: #ffffff;
+        color: #000000;
+        border-color: #000000;
+    }
 
     /* Change phone button text to "Call Now" on mobile */
     .phone-btn {
