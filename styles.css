@@ -999,7 +999,7 @@ a {
 
 /* Legal Pages (Terms of Service, Privacy Policy) */
 .legal-page {
-    padding: 120px 0 80px 0;
+    padding: 140px 0 80px 0;
     background: #000000;
     color: #ffffff;
     min-height: 100vh;
@@ -1130,7 +1130,7 @@ a {
 /* Mobile Responsive for Legal Pages */
 @media (max-width: 768px) {
     .legal-page {
-        padding: 100px 0 60px 0;
+        padding: 120px 0 60px 0;
     }
     
     .legal-content {
