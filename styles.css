@@ -820,11 +820,15 @@ a {
 }
 
 .service-btn.book-now {
-    background: #28a745;
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
 }
 
 .service-btn.book-now:hover {
-    background: #218838;
+    background: #ffffff;
+    color: #000000;
+    border: 2px solid #ffffff;
 }
 
 /* Service Benefits (for service pages) */
