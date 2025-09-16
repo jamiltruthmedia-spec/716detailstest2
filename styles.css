@@ -756,6 +756,8 @@ a {
     font-size: 1rem;
     transition: all 0.3s ease;
     display: inline-block;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
 }
 
 .service-btn:hover {
@@ -774,7 +776,8 @@ a {
     transition: all 0.3s ease;
     display: inline-block;
     border: 2px solid #ffffff;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+    box-sizing: border-box;
 }
 
 .service-quote-btn:hover {
