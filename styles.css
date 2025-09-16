@@ -763,6 +763,26 @@ a {
     transform: translateY(-2px);
 }
 
+.service-quote-btn {
+    background: transparent;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 2px solid #ffffff;
+    margin-top: 0.5rem;
+}
+
+.service-quote-btn:hover {
+    background: #ffffff;
+    color: #000000;
+    transform: translateY(-2px);
+}
+
 .service-buttons {
     display: flex;
     gap: 0.5rem;
