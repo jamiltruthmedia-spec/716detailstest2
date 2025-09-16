@@ -195,6 +195,21 @@ a {
     align-items: center;
 }
 
+/* Desktop navigation Book Now button - match phone button style */
+@media (min-width: 769px) {
+    .nav-contact .cta-btn {
+        background: #ffffff;
+        color: #000000;
+        border: 2px solid #000000;
+    }
+    
+    .nav-contact .cta-btn:hover {
+        background: #000000;
+        color: #ffffff;
+        border-color: #ffffff;
+    }
+}
+
 .phone-btn, .call-now-btn {
     background: #ffffff;
     color: #000000;
