@@ -211,6 +211,7 @@ a {
 .phone-btn:hover, .call-now-btn:hover {
     background: #000000;
     color: #ffffff;
+    border-color: #ffffff;
     transform: translateY(-1px);
 }
 
@@ -231,6 +232,7 @@ a {
 .cta-btn:hover {
     background: #000000;
     color: #ffffff;
+    border-color: #ffffff;
     transform: translateY(-1px);
 }
 
@@ -780,7 +782,7 @@ a {
 .service-btn:hover {
     background: #000000;
     color: #ffffff;
-    border-color: #000000;
+    border-color: #ffffff;
     transform: translateY(-2px);
 }
 
