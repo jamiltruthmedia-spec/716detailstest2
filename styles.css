@@ -245,6 +245,12 @@ a {
     border: 2px solid #000000;
 }
 
+.cta-btn.primary:hover {
+    background: #000000;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
 .cta-btn.secondary {
     background: transparent;
     color: white;
@@ -822,13 +828,13 @@ a {
 .service-btn.book-now {
     background: #000000;
     color: #ffffff;
-    border: 2px solid #000000;
+    border: 2px solid #ffffff;
 }
 
 .service-btn.book-now:hover {
     background: #ffffff;
     color: #000000;
-    border: 2px solid #ffffff;
+    border: 2px solid #000000;
 }
 
 /* Service Benefits (for service pages) */
