@@ -183,7 +183,6 @@
 
 /* Standard Sections */
 .services,
-.service-areas-preview,
 .about,
 .contact,
 .service-benefits,
@@ -198,8 +197,13 @@
     background: #000000;
 }
 
+/* Service Areas Preview - Special Background */
+.service-areas-preview {
+    padding: 80px 0;
+    background: #111111;
+}
+
 .services h2,
-.service-areas-preview h2,
 .about h2,
 .contact h2,
 .service-benefits h2,
@@ -214,6 +218,15 @@
     margin-bottom: 1rem;
     color: #ffffff;
     font-size: 2.5rem;
+}
+
+/* Service Areas Preview - Special H2 Styling */
+.service-areas-preview h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #ffffff;
 }
 
 .section-subtitle {
@@ -273,12 +286,20 @@
     margin-top: 3rem;
 }
 
-/* Areas Grid */
+/* Areas Grid - 3x2 Layout for Premium Service Areas */
+.areas-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 4rem;
+}
+
 .areas-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     margin-top: 3rem;
+    text-align: center;
 }
 
 .areas-detail-grid {
@@ -357,12 +378,18 @@
 /* ========== AREA ITEMS ========== */
 
 .area-item {
-    background: #111111;
-    border: 1px solid #333333;
-    border-radius: 8px;
+    background: #000000;
     padding: 2rem 1.5rem;
-    text-align: center;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 20px rgba(255,255,255,0.08);
     transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.05);
+    color: #ffffff;
+    display: block;
+    text-decoration: none;
+    text-align: center;
     cursor: pointer;
 }
 
@@ -451,6 +478,47 @@
 }
 
 /* ========== SPECIAL SECTIONS ========== */
+
+/* Service Selection CTA */
+.service-selection-cta {
+    padding: 100px 0;
+    background: #000000;
+    text-align: center;
+}
+
+.selection-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.selection-content p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 2.5rem;
+}
+
+.selection-features {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.selection-features span {
+    font-weight: 600;
+    color: #4F7CFF;
+    font-size: 1.1rem;
+}
+
+.selection-cta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
 /* About Features */
 .about-features {
