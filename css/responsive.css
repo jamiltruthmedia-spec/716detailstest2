@@ -28,9 +28,9 @@
         gap: 1.5rem;
     }
     
-    /* Areas Grid - Tablet: 2 columns */
+    /* Areas Grid - Tablet: Keep auto-fit for natural 3+3 layout */
     .areas-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: 1.5rem;
     }
 }
@@ -243,9 +243,30 @@
     .service-pillars,
     .related-services,
     .faq-section,
-    .final-cta,
     .service-selection-cta {
         padding: 60px 0;
+    }
+    
+    /* CTA Sections - Mobile */
+    .final-cta,
+    .emergency-cta {
+        padding: 60px 0;
+    }
+    
+    .final-cta h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .emergency-content h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
     }
     
     /* Service Selection CTA Mobile */
@@ -363,6 +384,15 @@
     .selection-content h2 {
         font-size: 2rem;
         margin-bottom: 1rem;
+    }
+    
+    /* CTA Sections Small Mobile */
+    .final-cta h2 {
+        font-size: 1.8rem;
+    }
+    
+    .emergency-content h2 {
+        font-size: 1.6rem;
     }
 }
 

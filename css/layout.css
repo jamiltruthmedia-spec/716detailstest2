@@ -191,8 +191,7 @@
 .service-areas-detail,
 .service-pillars,
 .related-services,
-.faq-section,
-.final-cta {
+.faq-section {
     padding: 80px 0;
     background: #000000;
 }
@@ -212,8 +211,7 @@
 .service-areas-detail h2,
 .service-pillars h2,
 .related-services h2,
-.faq-section h2,
-.final-cta h2 {
+.faq-section h2 {
     text-align: center;
     margin-bottom: 1rem;
     color: #ffffff;
@@ -296,7 +294,7 @@
 
 .areas-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
     margin-top: 3rem;
     text-align: center;
@@ -518,6 +516,69 @@
     gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+/* Final CTA - Get Your Free Quote Today */
+.final-cta {
+    padding: 100px 0;
+    background: #4F7CFF;
+    color: white;
+    text-align: center;
+}
+
+.final-cta h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.final-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.95;
+    color: #ffffff;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Emergency CTA - Need Emergency Car Detailing */
+.emergency-cta {
+    padding: 80px 0;
+    background: #4F7CFF;
+    color: white;
+    text-align: center;
+}
+
+.emergency-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.emergency-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    color: #ffffff;
+}
+
+.cta-btn.emergency {
+    background: white;
+    color: #4F7CFF;
+    border: 2px solid white;
+}
+
+.cta-btn.emergency:hover {
+    background: transparent;
+    color: white;
+    border-color: white;
 }
 
 /* About Features */
