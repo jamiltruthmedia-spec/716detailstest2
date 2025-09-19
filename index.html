@@ -550,12 +550,6 @@
                 <a href="locations/williamsville-car-detailing.html" class="area-item">Williamsville</a>
                 <a href="locations/wheatfield-car-detailing.html" class="area-item">Wheatfield</a>
                 <a href="locations/youngstown-car-detailing.html" class="area-item">Youngstown</a>
-                <a href="locations/wilson-car-detailing.html" class="area-item">Wilson</a>
-                <a href="locations/ransomville-car-detailing.html" class="area-item">Ransomville</a>
-                <a href="locations/sanborn-car-detailing.html" class="area-item">Sanborn</a>
-                <a href="locations/niagara-falls-car-detailing.html" class="area-item">Niagara Falls</a>
-                <a href="locations/kenmore-car-detailing.html" class="area-item">Kenmore</a>
-                <a href="locations/north-tonawanda-car-detailing.html" class="area-item">North Tonawanda</a>
             </div>
         </div>
     </section>
@@ -1149,10 +1143,7 @@
                             if (window.innerWidth <= 768) {
                                 areasMenu.style.display = 'none';
                             }
-                            const areasArrow = areasToggle.querySelector('.dropdown-arrow');
-                            if (areasArrow && window.innerWidth <= 768) {
-                                areasArrow.style.transform = 'rotate(0deg)';
-                            }
+                            // Arrow animation handled by CSS via .active class removal
                         }
                         
                         // Open this dropdown
@@ -1162,11 +1153,8 @@
                             servicesMenu.style.display = 'block';
                         }
                         
-                        // Force arrow animation on mobile
-                        const arrow = this.querySelector('.dropdown-arrow');
-                        if (arrow && window.innerWidth <= 768) {
-                            arrow.style.transform = 'rotate(180deg)';
-                        }
+                        // Arrow animation handled by CSS via .active class
+                        // CSS transition provides smooth rotation
                         
                         console.log('✅ Services opened');
                     }
@@ -1197,10 +1185,7 @@
                             if (window.innerWidth <= 768) {
                                 servicesMenu.style.display = 'none';
                             }
-                            const servicesArrow = servicesToggle.querySelector('.dropdown-arrow');
-                            if (servicesArrow && window.innerWidth <= 768) {
-                                servicesArrow.style.transform = 'rotate(0deg)';
-                            }
+                            // Arrow animation handled by CSS via .active class removal
                         }
                         
                         // Open this dropdown
@@ -1210,11 +1195,8 @@
                             areasMenu.style.display = 'block';
                         }
                         
-                        // Force arrow animation on mobile
-                        const arrow = this.querySelector('.dropdown-arrow');
-                        if (arrow && window.innerWidth <= 768) {
-                            arrow.style.transform = 'rotate(180deg)';
-                        }
+                        // Arrow animation handled by CSS via .active class
+                        // CSS transition provides smooth rotation
                         
                         console.log('✅ Service Areas opened');
                     }
@@ -1235,10 +1217,7 @@
             
             allDropdownToggles.forEach(toggle => {
                 toggle.classList.remove('active');
-                const arrow = toggle.querySelector('.dropdown-arrow');
-                if (arrow) {
-                    arrow.style.transform = '';
-                }
+                // Arrow animation handled by CSS via .active class removal
                 console.log('Cleaned toggle:', toggle.textContent.trim());
             });
             
@@ -1365,16 +1344,8 @@
             });
             document.querySelectorAll('.nav-menu .dropdown-toggle').forEach(toggle => {
                 toggle.classList.remove('active');
-                const arrow = toggle.querySelector('.dropdown-arrow');
-                if (arrow) {
-                    // Only force arrow rotation on mobile
-                    if (window.innerWidth <= 768) {
-                        arrow.style.transform = 'rotate(0deg)';
-                    } else {
-                        arrow.style.transform = '';
-                    }
-                    console.log('🎯 Reset arrow rotation');
-                }
+                // Arrow animation handled by CSS via .active class removal
+                // CSS transition provides smooth rotation back to original position
             });
         }
         
@@ -1410,10 +1381,7 @@
                     // Reset dropdown toggles for desktop
                     document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
                         toggle.classList.remove('active');
-                        const arrow = toggle.querySelector('.dropdown-arrow');
-                        if (arrow) {
-                            arrow.style.transform = '';
-                        }
+                        // Arrow animation handled by CSS via .active class removal
                     });
                 }
             }, 250);
