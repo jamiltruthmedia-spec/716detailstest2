@@ -70,6 +70,7 @@
 .dropdown-arrow {
     font-size: 0.8rem;
     transition: transform 0.3s ease;
+    display: inline-block;
 }
 
 .dropdown-toggle.active .dropdown-arrow {
@@ -333,10 +334,6 @@
         border-color: #000000;
     }
     
-    /* Desktop dropdown hover effects */
-    .nav-menu li:hover .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
+    /* Desktop dropdown click-only (no hover) */
+    /* Hover effects removed - dropdowns now work only on click */
 }
