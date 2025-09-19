@@ -33,6 +33,12 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
+    
+    /* Areas Detail Grid - Tablet: 2 columns for Premium Service Areas */
+    .areas-detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
 }
 
 /* ========== MOBILE STYLES (max-width: 768px) ========== */
