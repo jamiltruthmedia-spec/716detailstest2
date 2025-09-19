@@ -1,0 +1,487 @@
+/* ===================================
+   COMPONENTS CSS - Reusable UI elements
+   Buttons, Cards, Forms, Icons, etc.
+   =================================== */
+
+/* ========== BUTTONS & CTAs ========== */
+
+/* Primary Buttons */
+.service-btn {
+    background: #ffffff;
+    color: #000000;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    margin-bottom: 1rem;
+}
+
+.service-btn:hover {
+    background: #000000;
+    color: #ffffff;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.service-btn.book-now {
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.service-btn.book-now:hover {
+    background: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+/* Phone & Call Buttons */
+.phone-btn, .call-now-btn {
+    background: #ffffff;
+    color: #000000;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 2px solid #000000;
+    cursor: pointer;
+}
+
+.phone-btn:hover, .call-now-btn:hover {
+    background: #000000;
+    color: #ffffff;
+    border-color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* CTA Buttons */
+.cta-btn {
+    background: #ffffff;
+    color: #000000;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 2px solid #000000;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.cta-btn:hover {
+    background: #000000;
+    color: #ffffff;
+    border-color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.cta-btn.primary {
+    background: #ffffff;
+    color: #000000;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: 2px solid #000000;
+}
+
+.cta-btn.primary:hover {
+    background: #000000;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.cta-btn.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.cta-btn.secondary:hover {
+    background: white;
+    color: #000000;
+}
+
+/* Service Quote Buttons */
+.service-quote-btn {
+    background: transparent;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 2px solid #ffffff;
+    margin-top: 1rem;
+}
+
+.service-quote-btn:hover {
+    background: #ffffff;
+    color: #000000;
+    transform: translateY(-2px);
+}
+
+/* Package Buttons */
+.package-btn {
+    background: #4F7CFF;
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: block;
+    text-align: center;
+    border: 2px solid #4F7CFF;
+}
+
+.package-btn:hover {
+    background: #3B5FE6;
+    border-color: #3B5FE6;
+    transform: translateY(-2px);
+}
+
+/* Area Buttons */
+.area-btn {
+    background: #4F7CFF;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.area-btn:hover {
+    background: #3B5FE6;
+    transform: translateY(-2px);
+}
+
+/* ========== CARDS ========== */
+
+/* Service Cards */
+.service-card {
+    background: #111111;
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #333333;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(79, 124, 255, 0.3);
+    border-color: #4F7CFF;
+}
+
+.service-icon {
+    height: 280px;
+    margin-bottom: 2rem;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.service-icon img {
+    width: 100%;
+    max-width: 350px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 30px rgba(79, 124, 255, 0.3);
+}
+
+.service-card:hover .service-icon img {
+    transform: scale(1.05);
+}
+
+.service-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.service-card h3 a {
+    color: #4F7CFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.service-card h3 a:hover {
+    color: #3B5FE6;
+}
+
+/* Service Features List */
+.service-features {
+    list-style: none;
+    margin: 1.5rem 0;
+    flex-grow: 1;
+}
+
+.service-features li {
+    color: #cccccc;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Service Price */
+.service-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #4F7CFF;
+    margin: 1rem 0;
+}
+
+/* Package Cards */
+.package-card {
+    background: #111111;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.package-card:hover {
+    border-color: #4F7CFF;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(79, 124, 255, 0.2);
+}
+
+.package-card.featured {
+    border-color: #4F7CFF;
+    box-shadow: 0 10px 30px rgba(79, 124, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.package-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: #4F7CFF;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 10;
+}
+
+.package-header {
+    margin-bottom: 1.5rem;
+}
+
+.package-header h3 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.package-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #4F7CFF;
+}
+
+.package-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.package-features li {
+    color: #cccccc;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.5;
+}
+
+.package-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4F7CFF;
+    font-weight: bold;
+}
+
+/* Benefit Cards */
+.benefit-card {
+    background: #111111;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    border-color: #4F7CFF;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(79, 124, 255, 0.2);
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    color: #4F7CFF;
+    margin-bottom: 1rem;
+}
+
+.benefit-card h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.benefit-card p {
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+/* Area Detail Cards */
+.area-detail-card {
+    background: #111111;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.area-detail-card:hover {
+    border-color: #4F7CFF;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(79, 124, 255, 0.2);
+}
+
+.area-detail-card h3 {
+    color: #4F7CFF;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.area-detail-card p {
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* ========== BADGES & INDICATORS ========== */
+
+.hero-features {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-features span {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.hero-badges {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.hero-badges span {
+    background: rgba(79, 124, 255, 0.2);
+    color: #4F7CFF;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid #4F7CFF;
+}
+
+/* ========== STATS & METRICS ========== */
+
+.stats-band {
+    background: linear-gradient(135deg, #4F7CFF 0%, #3B5FE6 100%);
+    padding: 2rem 0;
+    color: white;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #ffffff;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* ========== LINKS ========== */
+
+.inline-link {
+    color: #4F7CFF;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+}
+
+.inline-link:hover {
+    border-bottom-color: #4F7CFF;
+}
+
+.feature-link {
+    color: #4F7CFF;
+    font-weight: 500;
+}
+
+.feature-link:hover {
+    color: #3B5FE6;
+}
