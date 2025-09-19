@@ -298,7 +298,7 @@
     gap: 1.5rem;
     margin-top: 3rem;
     text-align: center;
-    max-width: 1200px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -548,6 +548,38 @@
     gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.cta-button {
+    padding: 1.2rem 2.5rem;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.cta-button.primary {
+    background: white;
+    color: #4F7CFF;
+}
+
+.cta-button.primary:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-button.secondary:hover {
+    background: white;
+    color: #4F7CFF;
+    transform: translateY(-2px);
 }
 
 /* Emergency CTA - Need Emergency Car Detailing */

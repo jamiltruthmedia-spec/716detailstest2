@@ -171,6 +171,9 @@
     cursor: pointer;
     padding: 0.5rem;
     gap: 4px;
+    position: relative;
+    width: 30px;
+    height: 22px;
 }
 
 .hamburger span {
@@ -179,10 +182,25 @@
     background: #ffffff;
     transition: all 0.3s ease;
     border-radius: 2px;
+    position: absolute;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0;
+}
+
+.hamburger span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger span:nth-child(3) {
+    bottom: 0;
 }
 
 .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -190,7 +208,8 @@
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
 }
 
 /* ========== MOBILE NAVIGATION ========== */
