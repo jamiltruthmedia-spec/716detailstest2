@@ -71,7 +71,7 @@
 .service-hero {
     background: #000000;
     color: white;
-    padding: 140px 0 100px;
+    padding: 200px 0 100px;
     text-align: center;
 }
 
@@ -117,7 +117,7 @@
 
 /* Alternative Service Hero Layout */
 .service-hero.alt-layout {
-    padding: 140px 0 80px;
+    padding: 200px 0 80px;
     text-align: left;
 }
 

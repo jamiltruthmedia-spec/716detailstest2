@@ -238,13 +238,56 @@
 
 /* ========== CONTACT SECTIONS ========== */
 
+/* Contact Section Layout - Two Column */
+.contact .container {
+    max-width: 1200px;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 3rem;
+}
+
+.contact-info {
+    padding-right: 2rem;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.contact-item {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #cccccc;
+}
+
+.contact-item strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.contact-item a {
+    color: #4F7CFF;
+    font-weight: 600;
+}
+
+.contact-item a:hover {
+    color: #3B5FE6;
+}
+
 .contact-form {
     background: #111111;
     border: 1px solid #333333;
     border-radius: 12px;
     padding: 3rem;
-    max-width: 600px;
-    margin: 0 auto;
+    box-shadow: 0 8px 30px rgba(255,255,255,0.08);
 }
 
 .contact-form h3 {
@@ -395,8 +438,20 @@
         padding-top: 1.5rem;
     }
     
+    /* Contact Section Mobile */
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-info {
+        padding-right: 0;
+        order: 2;
+    }
+    
     .contact-form {
         padding: 2rem;
+        order: 1;
     }
 }
 

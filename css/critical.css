@@ -113,7 +113,9 @@ a {
     align-items: center;
     background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
     position: relative;
-    padding-top: 120px;
+    padding-top: 180px;
+    padding-bottom: 60px;
+    height: auto;
 }
 
 .hero-background {
@@ -226,6 +228,12 @@ a {
         transform: translateY(0);
         opacity: 1;
         visibility: visible;
+    }
+    
+    .hero {
+        padding-top: 200px;
+        padding-bottom: 80px;
+        min-height: 100vh;
     }
     
     .hero h1 {

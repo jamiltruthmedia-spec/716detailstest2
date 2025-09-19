@@ -202,6 +202,7 @@
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    position: relative;
 }
 
 .service-icon img {
@@ -210,8 +211,13 @@
     height: 260px;
     object-fit: cover;
     border-radius: 20px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
     box-shadow: 0 10px 30px rgba(79, 124, 255, 0.3);
+    opacity: 0;
+}
+
+.service-icon img.loaded {
+    opacity: 1;
 }
 
 .service-card:hover .service-icon img {
