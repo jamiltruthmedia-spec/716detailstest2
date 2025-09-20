@@ -67,20 +67,14 @@
     .hero h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1.5rem; background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
     
-    <!-- Main Stylesheet with Media Query -->
-    <link rel="stylesheet" href="css/main.css" media="all">
-    <noscript><link rel="stylesheet" href="css/main.css"></noscript>
-    
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Optimal CSS Loading Strategy -->
+    <!-- Preload non-critical CSS for fast loading -->
+    <link rel="preload" href="css/non-critical.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/non-critical.css"></noscript>
     
     <!-- Preload Critical Resources -->
-    <link rel="preload" href="css/main.css" as="style">
     <link rel="preload" href="Homepage Services images/full detail.webp" as="image">
     <link rel="preload" href="Homepage Services images/interior detail.webp" as="image">
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     
     <!-- ENHANCED LocalBusiness + AutoRepair Schema -->
     <script type="application/ld+json">
