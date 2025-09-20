@@ -207,6 +207,47 @@ a {
     transform: translateY(-2px);
 }
 
+/* CTA Button (alternative class name) */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.cta-button.primary {
+    background: #ffffff;
+    color: #000000;
+    border-color: #000000;
+}
+
+.cta-button.primary:hover {
+    background: #000000;
+    color: #ffffff;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.cta-button.secondary:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #000000;
+    transform: translateY(-2px);
+}
+
 /* Critical Mobile Styles */
 @media (max-width: 768px) {
     .nav-menu {
