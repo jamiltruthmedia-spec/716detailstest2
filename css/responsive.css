@@ -140,6 +140,11 @@
         gap: 1.5rem;
     }
     
+    .issues-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
     .areas-detail-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;

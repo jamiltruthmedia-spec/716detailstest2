@@ -488,3 +488,37 @@
 .feature-link:hover {
     color: #3B5FE6;
 }
+
+/* ========== ISSUE CARDS ========== */
+
+.issue-card {
+    background: #111111;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.issue-card:hover {
+    border-color: #4F7CFF;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(79, 124, 255, 0.2);
+}
+
+.issue-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.issue-card p {
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
