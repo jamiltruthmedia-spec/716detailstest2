@@ -7,7 +7,7 @@
     <!-- Primary Meta Tags -->
     <title>Car Detailing Lewiston NY | 716 Details | Mobile Service</title>
     <meta name="title" content="716 Details | Premium Car Detailing Lewiston NY | Ceramic Coating">
-    <meta name="description" content="Luxury car detailing in Lewiston NY. Mobile service, ceramic coating, paint correction. Serving Clarence, East Amherst, Williamsville. Call (716) 405-0316">
+    <meta name="description" content="Luxury car detailing in Lewiston NY. Mobile service, ceramic coating & paint correction. Serving Clarence & Williamsville. Call (716) 405-0316!">
     
     <!-- Canonical URL - CRITICAL FOR SEO -->
     <link rel="canonical" href="https://www.716details.net/">
@@ -166,7 +166,7 @@
                         "description": "Complete interior and exterior detailing service that makes your car look brand new",
                         "url": "https://www.716details.net/full-detail.html"
                     },
-                    "price": "149.00",
+                    "price": "290-350",
                     "priceCurrency": "USD"
                 },
                 {
@@ -177,7 +177,7 @@
                         "description": "We come to your location for convenient car detailing",
                         "url": "https://www.716details.net/mobile-car-detailing.html"
                     },
-                    "price": "89.00",
+                    "price": "220-350",
                     "priceCurrency": "USD"
                 },
                 {
@@ -188,7 +188,7 @@
                         "description": "Professional grade ceramic coating with 3-8 year protection",
                         "url": "https://www.716details.net/ceramic-coating.html"
                     },
-                    "price": "650.00",
+                    "price": "705-1255",
                     "priceCurrency": "USD"
                 },
                 {
@@ -607,7 +607,7 @@
                 <!-- Exterior Detail -->
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="Homepage Services images/exterior detail.webp" alt="Exterior car detailing service in Lewiston NY - hand wash and paint protection" loading="lazy">
+                        <img src="Homepage Services images/exterior detail.webp" alt="Exterior car detailing service in Lewiston NY - hand wash and paint protection" loading="lazy" width="350" height="260" decoding="async">
                     </div>
                     <h3><a href="exterior-detailing.html">Exterior Detail</a></h3>
                     <ul class="service-features">
@@ -702,7 +702,9 @@
 
                 <!-- Window Tinting -->
                 <div class="service-card">
-                    <div class="service-icon">🪟</div>
+                    <div class="service-icon">
+                        <img src="Homepage Services images/window tint.webp" alt="Professional window tinting service in Lewiston NY - UV protection and privacy" loading="lazy">
+                    </div>
                     <h3><a href="window-tinting.html">Window Tinting</a></h3>
                     <ul class="service-features">
                         <li>✓ NY State legal compliance</li>
@@ -1127,10 +1129,7 @@
                             if (window.innerWidth <= 768) {
                                 areasMenu.style.display = 'none';
                             }
-                            const areasArrow = areasToggle.querySelector('.dropdown-arrow');
-                            if (areasArrow && window.innerWidth <= 768) {
-                                areasArrow.style.transform = 'rotate(0deg)';
-                            }
+                            // Arrow animation handled by CSS via .active class removal
                         }
                         
                         // Open this dropdown
@@ -1140,11 +1139,8 @@
                             servicesMenu.style.display = 'block';
                         }
                         
-                        // Force arrow animation on mobile
-                        const arrow = this.querySelector('.dropdown-arrow');
-                        if (arrow && window.innerWidth <= 768) {
-                            arrow.style.transform = 'rotate(180deg)';
-                        }
+                        // Arrow animation handled by CSS via .active class
+                        // CSS transition provides smooth rotation
                         
                         console.log('✅ Services opened');
                     }
@@ -1175,10 +1171,7 @@
                             if (window.innerWidth <= 768) {
                                 servicesMenu.style.display = 'none';
                             }
-                            const servicesArrow = servicesToggle.querySelector('.dropdown-arrow');
-                            if (servicesArrow && window.innerWidth <= 768) {
-                                servicesArrow.style.transform = 'rotate(0deg)';
-                            }
+                            // Arrow animation handled by CSS via .active class removal
                         }
                         
                         // Open this dropdown
@@ -1188,11 +1181,8 @@
                             areasMenu.style.display = 'block';
                         }
                         
-                        // Force arrow animation on mobile
-                        const arrow = this.querySelector('.dropdown-arrow');
-                        if (arrow && window.innerWidth <= 768) {
-                            arrow.style.transform = 'rotate(180deg)';
-                        }
+                        // Arrow animation handled by CSS via .active class
+                        // CSS transition provides smooth rotation
                         
                         console.log('✅ Service Areas opened');
                     }
@@ -1213,10 +1203,7 @@
             
             allDropdownToggles.forEach(toggle => {
                 toggle.classList.remove('active');
-                const arrow = toggle.querySelector('.dropdown-arrow');
-                if (arrow) {
-                    arrow.style.transform = '';
-                }
+                // Arrow animation handled by CSS via .active class removal
                 console.log('Cleaned toggle:', toggle.textContent.trim());
             });
             
@@ -1343,16 +1330,8 @@
             });
             document.querySelectorAll('.nav-menu .dropdown-toggle').forEach(toggle => {
                 toggle.classList.remove('active');
-                const arrow = toggle.querySelector('.dropdown-arrow');
-                if (arrow) {
-                    // Only force arrow rotation on mobile
-                    if (window.innerWidth <= 768) {
-                        arrow.style.transform = 'rotate(0deg)';
-                    } else {
-                        arrow.style.transform = '';
-                    }
-                    console.log('🎯 Reset arrow rotation');
-                }
+                // Arrow animation handled by CSS via .active class removal
+                // CSS transition provides smooth rotation back to original position
             });
         }
         
@@ -1388,10 +1367,7 @@
                     // Reset dropdown toggles for desktop
                     document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
                         toggle.classList.remove('active');
-                        const arrow = toggle.querySelector('.dropdown-arrow');
-                        if (arrow) {
-                            arrow.style.transform = '';
-                        }
+                        // Arrow animation handled by CSS via .active class removal
                     });
                 }
             }, 250);
