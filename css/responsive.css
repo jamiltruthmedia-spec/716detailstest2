@@ -266,6 +266,20 @@
         padding: 80px 0;
     }
     
+    /* Breadcrumb - Mobile */
+    .breadcrumb {
+        padding: 0.5rem 0;
+        margin-bottom: 1rem;
+    }
+    
+    .breadcrumb-list {
+        font-size: 0.8rem;
+    }
+    
+    .breadcrumb-item + .breadcrumb-item::before {
+        margin: 0 0.3rem;
+    }
+    
     .final-cta h2 {
         font-size: 2.2rem;
         margin-bottom: 1rem;
