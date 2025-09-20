@@ -19,8 +19,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="css/critical.css" as="style">
-    <link rel="preload" href="Homepage Services images/full detail.webp" as="image">
+    <!-- Critical resource preloads -->
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -55,12 +54,35 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <!-- Critical CSS Inline for Instant Rendering -->
+    <style>
+    /* Critical above-the-fold styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; color: #ffffff; background: #000000; }
+    .navbar { position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .nav-logo a { font-size: 2rem; font-weight: 800; color: #ffffff; text-decoration: none; }
+    .nav-menu { display: flex; list-style: none; gap: 2.5rem; }
+    .nav-menu a { color: #ffffff; text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+    .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: #000000; position: relative; }
+    .hero-content h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #ffffff; }
+    .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+    .cta-btn { background: #ffffff; color: #000000; padding: 1rem 2rem; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block; margin: 0.5rem; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    @media (max-width: 768px) {
+        .hero-content h1 { font-size: 2.5rem; }
+        .nav-menu { display: none; }
+        .hamburger { display: flex; flex-direction: column; cursor: pointer; }
+        .hamburger span { width: 25px; height: 3px; background: #ffffff; margin: 3px 0; }
+    }
+    </style>
     
-    <!-- Preload Critical Resources -->
-    <link rel="preload" href="Homepage Services images/full detail.webp" as="image">
-    <link rel="preload" href="Homepage Services images/interior detail.webp" as="image">
+    <!-- Load full CSS asynchronously -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    
+    <!-- Preload only above-the-fold hero image -->
+    <link rel="preload" href="Homepage Services images/full detail.webp" as="image" media="(min-width: 768px)">
     
     <!-- ENHANCED LocalBusiness + AutoRepair Schema -->
     <script type="application/ld+json">
@@ -579,7 +601,14 @@
                 <!-- Full Detail -->
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="Homepage Services images/full detail.webp" alt="Full car detailing service in Lewiston NY - complete interior and exterior cleaning" loading="lazy" width="350" height="260" decoding="async">
+                        <img src="Homepage Services images/full detail.webp" 
+                             alt="Full car detailing service in Lewiston NY - complete interior and exterior cleaning" 
+                             loading="lazy" 
+                             width="350" 
+                             height="260" 
+                             decoding="async"
+                             style="max-width: 100%; height: auto; object-fit: cover;"
+                             sizes="(max-width: 768px) 280px, 350px">
                     </div>
                     <h3><a href="full-detail.html">Full Detail</a></h3>
                     <ul class="service-features">
@@ -598,7 +627,14 @@
                 <!-- Interior Detail -->
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="Homepage Services images/interior detail.webp" alt="Interior car detailing service in Niagara County NY - leather cleaning and dashboard restoration" loading="lazy" width="350" height="260" decoding="async">
+                        <img src="Homepage Services images/interior detail.webp" 
+                             alt="Interior car detailing service in Niagara County NY - leather cleaning and dashboard restoration" 
+                             loading="lazy" 
+                             width="350" 
+                             height="260" 
+                             decoding="async"
+                             style="max-width: 100%; height: auto; object-fit: cover;"
+                             sizes="(max-width: 768px) 280px, 350px">
                     </div>
                     <h3><a href="interior-detailing.html">Interior Detail</a></h3>
                     <ul class="service-features">
@@ -637,7 +673,14 @@
                 <div class="service-card featured">
                     <div class="service-badge">Most Popular</div>
                     <div class="service-icon">
-                        <img src="Homepage Services images/ceramic coating.webp" alt="Ceramic coating service in Niagara County NY - paint protection and gloss enhancement" loading="lazy" width="350" height="260" decoding="async">
+                        <img src="Homepage Services images/ceramic coating.webp" 
+                             alt="Ceramic coating service in Niagara County NY - paint protection and gloss enhancement" 
+                             loading="lazy" 
+                             width="350" 
+                             height="260" 
+                             decoding="async"
+                             style="max-width: 100%; height: auto; object-fit: cover;"
+                             sizes="(max-width: 768px) 280px, 350px">
                     </div>
                     <h3><a href="ceramic-coating.html">Ceramic Coating</a></h3>
                     <ul class="service-features">
