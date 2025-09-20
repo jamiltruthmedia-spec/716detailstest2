@@ -120,7 +120,9 @@
     
     .packages-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 2.5rem;
+        margin: 3rem 1rem 0;
+        padding: 0 1rem;
     }
     
     .packages-grid.two-package {
@@ -250,13 +252,13 @@
     .related-services,
     .faq-section,
     .service-selection-cta {
-        padding: 60px 0;
+        padding: 80px 0;
     }
     
     /* CTA Sections - Mobile */
     .final-cta,
     .emergency-cta {
-        padding: 60px 0;
+        padding: 80px 0;
     }
     
     .final-cta h2 {
@@ -294,6 +296,11 @@
         gap: 1rem;
     }
     
+    /* Service Packages Mobile Padding */
+    .service-packages {
+        padding: 60px 20px;
+    }
+    
     /* Contact Form */
     .contact-form {
         padding: 2rem;
@@ -316,6 +323,17 @@
     
     .service-hero {
         padding-top: 250px;
+    }
+    
+    /* Extra mobile package spacing */
+    .packages-grid {
+        gap: 3rem;
+        margin: 3rem 0.5rem 0;
+        padding: 0 0.5rem;
+    }
+    
+    .service-packages {
+        padding: 60px 15px;
     }
     
     .hero-content h1 {
@@ -426,6 +444,8 @@
     .packages-grid {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 2.5rem;
+        margin: 3rem 1.5rem 0;
+        padding: 0 1rem;
     }
 }
 

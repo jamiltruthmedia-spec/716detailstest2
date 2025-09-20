@@ -192,13 +192,13 @@
 .service-pillars,
 .related-services,
 .faq-section {
-    padding: 80px 0;
+    padding: 100px 0;
     background: #000000;
 }
 
 /* Service Areas Preview - Special Background */
 .service-areas-preview {
-    padding: 80px 0;
+    padding: 100px 0;
     background: #111111;
 }
 
@@ -213,9 +213,9 @@
 .related-services h2,
 .faq-section h2 {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
     color: #ffffff;
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 
 /* Service Areas Preview - Special H2 Styling */
@@ -227,11 +227,21 @@
     color: #ffffff;
 }
 
+/* Section-Specific Header Spacing Overrides */
+.related-services h2,
+.service-areas-detail h2 {
+    margin-bottom: 2rem;
+}
+
+.final-cta h2 {
+    margin-bottom: 1.5rem;
+}
+
 .section-subtitle {
     text-align: center;
     font-size: 1.2rem;
     color: #cccccc;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -243,8 +253,8 @@
 /* Services Grid */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.5rem;
     margin-top: 3rem;
 }
 
