@@ -945,8 +945,10 @@
         <div class="container">
             <h2>What Our Customers Say</h2>
             <div class="reviews-widget-container">
-                <script type='text/javascript' src='https://reputationhub.site/reputation/assets/review-widget.js'></script>
-                <iframe class='lc_reviews_widget' src='https://reputationhub.site/reputation/widgets/review_widget/PGlYHaagbepUC7Fhmriz' frameborder='0' scrolling='no' style='min-width: 100%; width: 100%;'></iframe>
+                <div id="reviews-widget-placeholder" class="reviews-placeholder">
+                    <div class="loading-spinner"></div>
+                    <p>Loading reviews...</p>
+                </div>
             </div>
             <div class="reviews-cta">
                 <a href="tel:7164050316" class="cta-btn">Call for More Information</a>
@@ -1577,6 +1579,68 @@
             lastTouchEnd = now;
         }, false);
     });
+    </script>
+
+    <!-- Optimized Reviews Widget Loading -->
+    <script>
+        // Optimized Reviews Widget Loading for Performance
+        let reviewsWidgetLoaded = false;
+        
+        function loadReviewsWidget() {
+            if (reviewsWidgetLoaded) return;
+            
+            const placeholder = document.getElementById('reviews-widget-placeholder');
+            if (!placeholder) return;
+            
+            // Create script element with performance optimizations
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'https://reputationhub.site/reputation/assets/review-widget.js';
+            script.async = true;
+            script.defer = true;
+            
+            // Create iframe element with lazy loading
+            const iframe = document.createElement('iframe');
+            iframe.className = 'lc_reviews_widget';
+            iframe.src = 'https://reputationhub.site/reputation/widgets/review_widget/PGlYHaagbepUC7Fhmriz';
+            iframe.frameBorder = '0';
+            iframe.scrolling = 'no';
+            iframe.style.cssText = 'min-width: 100%; width: 100%; border-radius: 16px; min-height: 400px;';
+            iframe.loading = 'lazy';
+            
+            // Replace placeholder with actual widget
+            script.onload = function() {
+                placeholder.innerHTML = '';
+                placeholder.appendChild(iframe);
+                reviewsWidgetLoaded = true;
+            };
+            
+            // Handle script loading error gracefully
+            script.onerror = function() {
+                placeholder.innerHTML = '<p style="color: #cccccc; text-align: center; padding: 2rem;">Reviews temporarily unavailable</p>';
+            };
+            
+            document.head.appendChild(script);
+        }
+        
+        // Load widget only when user scrolls to reviews section (Intersection Observer)
+        const reviewsSection = document.querySelector('.reviews-section');
+        if (reviewsSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !reviewsWidgetLoaded) {
+                        // Add small delay to ensure page is fully loaded
+                        setTimeout(loadReviewsWidget, 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '200px 0px', // Start loading 200px before section is visible
+                threshold: 0.1
+            });
+            
+            observer.observe(reviewsSection);
+        }
     </script>
 </body>
 </html>
