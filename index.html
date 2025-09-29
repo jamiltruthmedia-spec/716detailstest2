@@ -1053,64 +1053,12 @@
                 </div>
                 <div class="contact-form">
                     <h3>Schedule Your Detailing Service</h3>
-                    <form>
-                        <div class="form-row">
-                            <input type="text" placeholder="First Name" required>
-                            <input type="text" placeholder="Last Name" required>
+                    <div class="gohighlevel-form-container">
+                        <div id="gohighlevel-form-placeholder" class="form-placeholder">
+                            <div class="loading-spinner"></div>
+                            <p>Loading form...</p>
                         </div>
-                        <div class="form-row">
-                            <input type="email" placeholder="Email Address" required>
-                            <input type="tel" placeholder="Phone Number" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="service-select" class="sr-only">Select Service Needed</label>
-                            <select id="service-select" required>
-                                <option value="">Select Service Needed</option>
-                                <option value="interior">Luxury Interior Detailing</option>
-                                <option value="exterior">Premium Exterior Detailing</option>
-                                <option value="ceramic">Ceramic Coating Protection</option>
-                                <option value="mobile">Mobile Detailing Service</option>
-                                <option value="paint-correction">Paint Correction</option>
-                                <option value="window-tinting">Window Tinting</option>
-                                <option value="boat">Boat Detailing</option>
-                                <option value="rv">RV Detailing</option>
-                                <option value="emergency">Emergency Service</option>
-                                <option value="consultation">Free Consultation</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="location-select" class="sr-only">Service Location</label>
-                            <select id="location-select" required>
-                                <option value="">Service Location</option>
-                                <option value="lewiston">Lewiston, NY</option>
-                                <option value="clarence">Clarence, NY</option>
-                                <option value="east-amherst">East Amherst, NY</option>
-                                <option value="williamsville">Williamsville, NY</option>
-                                <option value="wheatfield">Wheatfield, NY</option>
-                                <option value="youngstown">Youngstown, NY</option>
-                                <option value="wilson">Wilson, NY</option>
-                                <option value="ransomville">Ransomville, NY</option>
-                                <option value="sanborn">Sanborn, NY</option>
-                                <option value="niagara-falls">Niagara Falls, NY</option>
-                                <option value="kenmore">Kenmore, NY</option>
-                                <option value="north-tonawanda">North Tonawanda, NY</option>
-                                <option value="other">Other Niagara County Location</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="service-type-select" class="sr-only">Preferred Service Type</label>
-                            <select id="service-type-select">
-                                <option value="">Preferred Service Type</option>
-                                <option value="mobile">Mobile Service (at your location)</option>
-                                <option value="shop">Shop Service (at our facility)</option>
-                                <option value="either">Either option works</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Tell us about your vehicle and any specific detailing needs (year, make, model, current condition, special requests)" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Get My Free Quote</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1579,6 +1527,78 @@
             lastTouchEnd = now;
         }, false);
     });
+    </script>
+
+    <!-- Optimized GoHighLevel Form Loading -->
+    <script>
+        // Optimized GoHighLevel Form Loading for Performance
+        let gohighlevelFormLoaded = false;
+        
+        function loadGoHighLevelForm() {
+            if (gohighlevelFormLoaded) return;
+            
+            const placeholder = document.getElementById('gohighlevel-form-placeholder');
+            if (!placeholder) return;
+            
+            // Create script element with performance optimizations
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'https://link.msgsndr.com/js/form_embed.js';
+            script.async = true;
+            script.defer = true;
+            
+            // Create iframe element with lazy loading
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://api.leadconnectorhq.com/widget/form/rU3lt5iV9NYWLbx3vvkC';
+            iframe.style.cssText = 'width:100%;height:100%;border:none;border-radius:4px';
+            iframe.id = 'inline-rU3lt5iV9NYWLbx3vvkC';
+            iframe.setAttribute('data-layout', '{"id":"INLINE"}');
+            iframe.setAttribute('data-trigger-type', 'alwaysShow');
+            iframe.setAttribute('data-trigger-value', '');
+            iframe.setAttribute('data-activation-type', 'alwaysActivated');
+            iframe.setAttribute('data-activation-value', '');
+            iframe.setAttribute('data-deactivation-type', 'neverDeactivate');
+            iframe.setAttribute('data-deactivation-value', '');
+            iframe.setAttribute('data-form-name', 'Contact Us Page');
+            iframe.setAttribute('data-height', '757');
+            iframe.setAttribute('data-layout-iframe-id', 'inline-rU3lt5iV9NYWLbx3vvkC');
+            iframe.setAttribute('data-form-id', 'rU3lt5iV9NYWLbx3vvkC');
+            iframe.title = 'Contact Us Page';
+            iframe.loading = 'lazy';
+            
+            // Handle script load
+            script.onload = function() {
+                placeholder.innerHTML = '';
+                placeholder.appendChild(iframe);
+                gohighlevelFormLoaded = true;
+            };
+            
+            // Handle script error
+            script.onerror = function() {
+                placeholder.innerHTML = '<p style="color: #ff6b6b; text-align: center;">Form temporarily unavailable. Please call (716) 405-0316</p>';
+            };
+            
+            // Append script to head
+            document.head.appendChild(script);
+        }
+        
+        // Load form when contact section is visible
+        const contactObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    loadGoHighLevelForm();
+                    contactObserver.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '200px' });
+        
+        // Start observing contact section
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactSection = document.querySelector('.contact');
+            if (contactSection) {
+                contactObserver.observe(contactSection);
+            }
+        });
     </script>
 
     <!-- Optimized Reviews Widget Loading -->
