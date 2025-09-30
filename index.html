@@ -1584,13 +1584,59 @@
     <!-- GoHighLevel Tracking Script -->
     <script src="https://link.msgsndr.com/js/form_embed.js"></script>
     
-    <!-- GoHighLevel Native Form Handler - Uses All Original Data Attributes -->
+    <!-- GoHighLevel Native Form Handler - Prevents Redirect -->
     <script>
-        // Let GoHighLevel script handle everything naturally
         document.addEventListener('DOMContentLoaded', function() {
-            // The GoHighLevel script will automatically detect and handle the form
-            // with all the data attributes we've added
-            console.log('GoHighLevel native form ready');
+            const form = document.getElementById('inline-rU3lt5iV9NYWLbx3vvkC');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault(); // Prevent the redirect
+                    
+                    // Get form data
+                    const formData = new FormData(form);
+                    
+                    // Show loading state
+                    const submitBtn = form.querySelector('.submit-btn');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    // Submit to GoHighLevel using fetch
+                    fetch('https://api.leadconnectorhq.com/widget/form/rU3lt5iV9NYWLbx3vvkC', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Success
+                            submitBtn.textContent = 'Message Sent!';
+                            submitBtn.style.background = '#28a745';
+                            form.reset();
+                            
+                            // Reset button after 3 seconds
+                            setTimeout(() => {
+                                submitBtn.textContent = originalText;
+                                submitBtn.style.background = '#4F7CFF';
+                                submitBtn.disabled = false;
+                            }, 3000);
+                        } else {
+                            throw new Error('Form submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        submitBtn.textContent = 'Error - Please Call (716) 405-0316';
+                        submitBtn.style.background = '#dc3545';
+                        
+                        // Reset button after 5 seconds
+                        setTimeout(() => {
+                            submitBtn.textContent = originalText;
+                            submitBtn.style.background = '#4F7CFF';
+                            submitBtn.disabled = false;
+                        }, 5000);
+                    });
+                });
+            }
         });
     </script>
     
