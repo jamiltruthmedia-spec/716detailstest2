@@ -1601,43 +1601,46 @@
                     submitBtn.textContent = 'Sending...';
                     submitBtn.disabled = true;
                     
-                    // Submit to GoHighLevel webhook
-                    fetch('https://hooks.leadconnectorhq.com/hooks/catch/rU3lt5iV9NYWLbx3vvkC', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data)
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            // Success
-                            submitBtn.textContent = 'Message Sent!';
-                            submitBtn.style.background = '#28a745';
-                            form.reset();
-                            
-                            // Reset button after 3 seconds
-                            setTimeout(() => {
-                                submitBtn.textContent = originalText;
-                                submitBtn.style.background = '#4F7CFF';
-                                submitBtn.disabled = false;
-                            }, 3000);
-                        } else {
-                            throw new Error('Form submission failed');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        submitBtn.textContent = 'Error - Please Call (716) 405-0316';
-                        submitBtn.style.background = '#dc3545';
-                        
-                        // Reset button after 5 seconds
-                        setTimeout(() => {
-                            submitBtn.textContent = originalText;
-                            submitBtn.style.background = '#4F7CFF';
-                            submitBtn.disabled = false;
-                        }, 5000);
+                    // Create hidden iframe to submit to GoHighLevel
+                    const iframe = document.createElement('iframe');
+                    iframe.style.display = 'none';
+                    iframe.name = 'gohighlevel-submit';
+                    document.body.appendChild(iframe);
+                    
+                    // Create hidden form for GoHighLevel submission
+                    const hiddenForm = document.createElement('form');
+                    hiddenForm.method = 'POST';
+                    hiddenForm.action = 'https://api.leadconnectorhq.com/widget/form/rU3lt5iV9NYWLbx3vvkC';
+                    hiddenForm.target = 'gohighlevel-submit';
+                    hiddenForm.style.display = 'none';
+                    
+                    // Add all form fields to hidden form
+                    Object.keys(data).forEach(key => {
+                        const input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = key;
+                        input.value = data[key];
+                        hiddenForm.appendChild(input);
                     });
+                    
+                    document.body.appendChild(hiddenForm);
+                    
+                    // Submit the hidden form
+                    hiddenForm.submit();
+                    
+                    // Show success message
+                    submitBtn.textContent = 'Message Sent!';
+                    submitBtn.style.background = '#28a745';
+                    form.reset();
+                    
+                    // Clean up
+                    setTimeout(() => {
+                        document.body.removeChild(hiddenForm);
+                        document.body.removeChild(iframe);
+                        submitBtn.textContent = originalText;
+                        submitBtn.style.background = '#4F7CFF';
+                        submitBtn.disabled = false;
+                    }, 3000);
                 });
             }
         });
