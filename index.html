@@ -1564,6 +1564,17 @@
                 placeholder.appendChild(iframe);
                 gohighlevelFormLoaded = true;
                 
+                // Prevent scrolling on iframe
+                iframe.addEventListener('wheel', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }, { passive: false });
+                
+                iframe.addEventListener('scroll', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }, { passive: false });
+                
                 // Dynamic height adjustment
                 iframe.onload = function() {
                     try {
