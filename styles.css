@@ -18,13 +18,14 @@
     border: 1px solid rgba(255,255,255,0.1);
     position: relative;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1.5rem;
+    display: inline-block;
 }
 
 .contact-form h3 {
     color: #ffffff;
     margin-top: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-size: 24px;
     font-weight: 600;
     text-align: center;
@@ -36,6 +37,7 @@
     background: transparent;
     position: relative;
     overflow: hidden;
+    display: inline-block;
 }
 
 #inline-rU3lt5iV9NYWLbx3vvkC {
@@ -44,11 +46,12 @@
     border-radius: 4px;
     display: block;
     transition: height 0.3s ease;
+    min-height: 400px;
 }
 
 .form-loading {
     text-align: center;
-    padding: 40px 20px;
+    padding: 20px;
     color: rgba(255,255,255,0.6);
     font-size: 14px;
 }
