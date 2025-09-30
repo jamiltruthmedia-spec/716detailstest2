@@ -40,7 +40,8 @@
     display: block;
     transition: height 0.3s ease;
     min-height: 400px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    background: transparent !important;
+    box-shadow: none !important;
 }
 
 .form-loading {
@@ -70,8 +71,29 @@
     }
 }
 
-/* GoHighLevel Form Custom Styling - Direct Integration */
-.contact-form iframe{ background:transparent !important;border:none !important;}.contact-form *{ box-sizing:border-box !important;}.contact-form .form-container,.contact-form .form-wrapper,.contact-form .form-content{ background:#000000 !important;border:none !important;padding:0 !important;margin:0 !important;width:100% !important;height:100% !important;}.contact-form input,.contact-form select,.contact-form textarea{ width:100% !important;padding:12px 16px !important;border:1px solid #333333 !important;border-radius:8px !important;background:#ffffff !important;color:#000000 !important;font-size:16px !important;margin-bottom:16px !important;}.contact-form .form-row{ display:flex !important;gap:12px !important;margin-bottom:16px !important;}.contact-form .form-row input{ flex:1 !important;margin-bottom:0 !important;}.contact-form button{ width:100% !important;padding:16px !important;background:#4F7CFF !important;color:#ffffff !important;border:none !important;border-radius:8px !important;font-size:16px !important;font-weight:600 !important;cursor:pointer !important;transition:all 0.3s ease !important;}.contact-form button:hover{ background:#3B5FE6 !important;transform:translateY(-2px) !important;}.contact-form label{ display:block !important;margin-bottom:8px !important;color:#ffffff !important;font-weight:500 !important;font-size:14px !important;}.contact-form .form-title{ color:#ffffff !important;font-size:1.5rem !important;font-weight:700 !important;margin-bottom:2rem !important;text-align:center !important;}
+/* GoHighLevel Form Custom Styling - Remove Black Box */
+.contact-form iframe{ 
+    background:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
+}
+
+/* Override GoHighLevel's black background */
+#inline-rU3lt5iV9NYWLbx3vvkC {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Target the iframe content to remove black backgrounds */
+.contact-form iframe[src*="leadconnectorhq.com"] {
+    background: transparent !important;
+}
+
+/* Remove any container backgrounds that might be creating the black box */
+.contact-form .gohighlevel-form-container {
+    background: transparent !important;
+    box-shadow: none !important;
+}
 
 /* GoHighLevel Widget Custom Styling */
 .lc_reviews_widget{ border:none !important;background:#000000 !important;color:#ffffff !important;}.reviews-widget-container *{ color:#ffffff !important;background:#000000 !important;}.reviews-widget-container .review-item{ background:#111111 !important;border:1px solid rgba(255,255,255,0.05) !important;border-radius:12px !important;margin:1rem !important;padding:1.5rem !important;}.reviews-widget-container .review-text{ color:#ffffff !important;font-style:italic !important;}.reviews-widget-container .reviewer-name{ color:#4F7CFF !important;font-weight:600 !important;}.reviews-widget-container .stars{ color:#FFD700 !important;}.reviews-widget-container .review-date{ color:#cccccc !important;}
