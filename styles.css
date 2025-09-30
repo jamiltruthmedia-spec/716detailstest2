@@ -19,7 +19,8 @@
     position: relative;
     margin: 0 auto;
     padding: 1.5rem;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
 }
 
 .contact-form h3 {
@@ -37,7 +38,7 @@
     background: transparent;
     position: relative;
     overflow: hidden;
-    display: inline-block;
+    flex: 0 0 auto;
 }
 
 #inline-rU3lt5iV9NYWLbx3vvkC {
@@ -54,6 +55,23 @@
     padding: 20px;
     color: rgba(255,255,255,0.6);
     font-size: 14px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 1rem;
+        margin: 0 10px;
+    }
+    
+    .contact-form h3 {
+        font-size: 20px;
+        margin-bottom: 0.75rem;
+    }
+    
+    #inline-rU3lt5iV9NYWLbx3vvkC {
+        min-height: 350px;
+    }
 }
 
 /* GoHighLevel Form Custom Styling - Direct Integration */
