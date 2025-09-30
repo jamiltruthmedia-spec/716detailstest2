@@ -1600,46 +1600,59 @@
                     submitBtn.textContent = 'Sending...';
                     submitBtn.disabled = true;
                     
-                    // Create hidden iframe for GoHighLevel submission
-                    const iframe = document.createElement('iframe');
-                    iframe.style.display = 'none';
-                    iframe.name = 'gohighlevel-submit';
-                    document.body.appendChild(iframe);
+                    // Use GoHighLevel's form submission method
+                    const formData = new FormData();
                     
-                    // Create hidden form for GoHighLevel submission
-                    const hiddenForm = document.createElement('form');
-                    hiddenForm.method = 'POST';
-                    hiddenForm.action = 'https://api.leadconnectorhq.com/widget/form/rU3lt5iV9NYWLbx3vvkC';
-                    hiddenForm.target = 'gohighlevel-submit';
-                    hiddenForm.style.display = 'none';
+                    // Add all the form fields exactly as GoHighLevel expects
+                    formData.append('first_name', data.first_name || '');
+                    formData.append('last_name', data.last_name || '');
+                    formData.append('email', data.email || '');
+                    formData.append('phone', data.phone || '');
+                    formData.append('zip_code', data.zip_code || '');
+                    formData.append('service_type', data.service_type || '');
+                    formData.append('message', data.message || '');
                     
-                    // Add all form fields to hidden form
-                    Object.keys(data).forEach(key => {
-                        const input = document.createElement('input');
-                        input.type = 'hidden';
-                        input.name = key;
-                        input.value = data[key] || '';
-                        hiddenForm.appendChild(input);
+                    // Add GoHighLevel tracking fields
+                    formData.append('source', 'Website Contact Form');
+                    formData.append('form_name', 'Contact Us Page');
+                    formData.append('lead_source', 'Website');
+                    formData.append('utm_source', 'website');
+                    formData.append('utm_medium', 'contact_form');
+                    
+                    // Submit using GoHighLevel's method
+                    fetch('https://api.leadconnectorhq.com/widget/form/rU3lt5iV9NYWLbx3vvkC', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Success
+                            submitBtn.textContent = 'Message Sent!';
+                            submitBtn.style.background = '#28a745';
+                            form.reset();
+                            
+                            // Reset button after 3 seconds
+                            setTimeout(() => {
+                                submitBtn.textContent = originalText;
+                                submitBtn.style.background = '#4F7CFF';
+                                submitBtn.disabled = false;
+                            }, 3000);
+                        } else {
+                            throw new Error('Form submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        submitBtn.textContent = 'Error - Please Call (716) 405-0316';
+                        submitBtn.style.background = '#dc3545';
+                        
+                        // Reset button after 5 seconds
+                        setTimeout(() => {
+                            submitBtn.textContent = originalText;
+                            submitBtn.style.background = '#4F7CFF';
+                            submitBtn.disabled = false;
+                        }, 5000);
                     });
-                    
-                    document.body.appendChild(hiddenForm);
-                    
-                    // Submit the hidden form
-                    hiddenForm.submit();
-                    
-                    // Show success message
-                    submitBtn.textContent = 'Message Sent!';
-                    submitBtn.style.background = '#28a745';
-                    form.reset();
-                    
-                    // Clean up and reset
-                    setTimeout(() => {
-                        document.body.removeChild(hiddenForm);
-                        document.body.removeChild(iframe);
-                        submitBtn.textContent = originalText;
-                        submitBtn.style.background = '#4F7CFF';
-                        submitBtn.disabled = false;
-                    }, 3000);
                 });
             }
         });
