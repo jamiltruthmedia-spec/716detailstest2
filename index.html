@@ -1053,11 +1053,9 @@
                 </div>
                 <div class="contact-form">
                     <h3>Schedule Your Detailing Service</h3>
-                    <div class="gohighlevel-form-container">
-                        <div id="gohighlevel-form-placeholder" class="form-placeholder">
-                            <div class="loading-spinner"></div>
-                            <p>Loading form...</p>
-                        </div>
+                    <div id="gohighlevel-form-placeholder" class="form-placeholder">
+                        <div class="loading-spinner"></div>
+                        <p>Loading form...</p>
                     </div>
                 </div>
             </div>
@@ -1584,7 +1582,7 @@
                             const formHeight = formContainer.body.scrollHeight;
                             if (formHeight > 0 && formHeight < 600) {
                                 iframe.style.height = formHeight + 'px';
-                                document.querySelector('.gohighlevel-form-container').style.height = formHeight + 'px';
+                                document.querySelector('.contact-form').style.height = formHeight + 'px';
                             }
                         }
                     } catch (e) {
