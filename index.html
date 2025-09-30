@@ -1571,14 +1571,95 @@
     <!-- GoHighLevel Tracking Script -->
     <script src="https://link.msgsndr.com/js/form_embed.js"></script>
     
-    <!-- GoHighLevel Native Form - Let it submit naturally -->
+    <!-- GoHighLevel Form Submission Handler -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('gohighlevel-form');
             if (form) {
-                // Let the form submit naturally to GoHighLevel
-                // The form action and method will handle the submission
-                console.log('GoHighLevel form ready for natural submission');
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault(); // Prevent the redirect
+                    
+                    // Show loading state
+                    const submitBtn = form.querySelector('.submit-btn');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    // Create a hidden iframe for submission
+                    const iframe = document.createElement('iframe');
+                    iframe.style.display = 'none';
+                    iframe.name = 'gohighlevel-submit';
+                    document.body.appendChild(iframe);
+                    
+                    // Create a hidden form that submits to the iframe
+                    const hiddenForm = document.createElement('form');
+                    hiddenForm.method = 'POST';
+                    hiddenForm.action = 'https://api.leadconnectorhq.com/widget/form/rU3lt5iV9NYWLbx3vvkC';
+                    hiddenForm.target = 'gohighlevel-submit';
+                    hiddenForm.style.display = 'none';
+                    
+                    // Copy all form data to the hidden form
+                    const formData = new FormData(form);
+                    for (let [key, value] of formData.entries()) {
+                        const input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = key;
+                        input.value = value;
+                        hiddenForm.appendChild(input);
+                    }
+                    
+                    document.body.appendChild(hiddenForm);
+                    
+                    // Handle successful submission
+                    iframe.onload = function() {
+                        submitBtn.textContent = 'Message Sent!';
+                        submitBtn.style.background = '#28a745';
+                        form.reset();
+                        
+                        // Clean up after 2 seconds
+                        setTimeout(() => {
+                            if (document.body.contains(iframe)) {
+                                document.body.removeChild(iframe);
+                            }
+                            if (document.body.contains(hiddenForm)) {
+                                document.body.removeChild(hiddenForm);
+                            }
+                        }, 2000);
+                        
+                        // Reset button after 3 seconds
+                        setTimeout(() => {
+                            submitBtn.textContent = originalText;
+                            submitBtn.style.background = '#4F7CFF';
+                            submitBtn.disabled = false;
+                        }, 3000);
+                    };
+                    
+                    // Handle submission error
+                    iframe.onerror = function() {
+                        submitBtn.textContent = 'Error - Please Call (716) 405-0316';
+                        submitBtn.style.background = '#dc3545';
+                        
+                        // Clean up
+                        setTimeout(() => {
+                            if (document.body.contains(iframe)) {
+                                document.body.removeChild(iframe);
+                            }
+                            if (document.body.contains(hiddenForm)) {
+                                document.body.removeChild(hiddenForm);
+                            }
+                        }, 2000);
+                        
+                        // Reset button after 5 seconds
+                        setTimeout(() => {
+                            submitBtn.textContent = originalText;
+                            submitBtn.style.background = '#4F7CFF';
+                            submitBtn.disabled = false;
+                        }, 5000);
+                    };
+                    
+                    // Submit the hidden form
+                    hiddenForm.submit();
+                });
             }
         });
     </script>
