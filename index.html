@@ -1053,63 +1053,25 @@
                 </div>
                 <div class="contact-form">
                     <h3>Schedule Your Detailing Service</h3>
-                    <div class="gohighlevel-form-container" 
-                         data-layout="{'id':'INLINE'}"
-                         data-trigger-type="alwaysShow"
-                         data-trigger-value=""
-                         data-activation-type="alwaysActivated"
-                         data-activation-value=""
-                         data-deactivation-type="neverDeactivate"
-                         data-deactivation-value=""
-                         data-form-name="Contact Us Page"
-                         data-height="401"
-                         data-layout-iframe-id="inline-rU3lt5iV9NYWLbx3vvkC"
-                         data-form-id="rU3lt5iV9NYWLbx3vvkC">
-                        
-                        <form id="inline-rU3lt5iV9NYWLbx3vvkC" 
-                              class="gohighlevel-native-form"
-                              action="https://api.leadconnectorhq.com/widget/form/rU3lt5iV9NYWLbx3vvkC" 
-                              method="POST">
-                            
-                            <div class="form-group">
-                                <label for="first_name">First Name</label>
-                                <input type="text" id="first_name" name="first_name">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="last_name">Last Name</label>
-                                <input type="text" id="last_name" name="last_name">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="phone">Phone *</label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="zip_code">Zip Code</label>
-                                <input type="text" id="zip_code" name="zip_code">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="service_type">Select Service</label>
-                                <select id="service_type" name="service_type">
-                                    <option value="">Select Service</option>
-                                    <option value="Interior Detailing">Interior Detailing</option>
-                                    <option value="Exterior Coating">Exterior Coating</option>
-                                    <option value="Full Detail">Full Detail</option>
-                                    <option value="Ceramic Coating">Ceramic Coating</option>
-                                    <option value="Emergency Service">Emergency Service</option>
-                                </select>
-                            </div>
-                            
-                            <button type="submit" class="submit-btn">SUBMIT</button>
-                        </form>
+                    <div class="gohighlevel-form-container">
+                        <div class="form-loading">Loading form...</div>
+                        <iframe
+                            src="https://api.leadconnectorhq.com/widget/form/rU3lt5iV9NYWLbx3vvkC"
+                            id="inline-rU3lt5iV9NYWLbx3vvkC" 
+                            data-layout="{'id':'INLINE'}"
+                            data-trigger-type="alwaysShow"
+                            data-trigger-value=""
+                            data-activation-type="alwaysActivated"
+                            data-activation-value=""
+                            data-deactivation-type="neverDeactivate"
+                            data-deactivation-value=""
+                            data-form-name="Contact Us Page"
+                            data-height="undefined"
+                            data-layout-iframe-id="inline-rU3lt5iV9NYWLbx3vvkC"
+                            data-form-id="rU3lt5iV9NYWLbx3vvkC"
+                            title="Contact Us Page"
+                            style="height: 600px;">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -1584,114 +1546,59 @@
     <!-- GoHighLevel Tracking Script -->
     <script src="https://link.msgsndr.com/js/form_embed.js"></script>
     
-    <!-- GoHighLevel Form Submission Handler -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('inline-rU3lt5iV9NYWLbx3vvkC');
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault(); // Prevent the redirect
-                    
-                    // Show loading state
-                    const submitBtn = form.querySelector('.submit-btn');
-                    const originalText = submitBtn.textContent;
-                    submitBtn.textContent = 'Sending...';
-                    submitBtn.disabled = true;
-                    
-                    // Get form data
-                    const formData = new FormData(form);
-                    
-                    // Create a hidden iframe for submission
-                    const iframe = document.createElement('iframe');
-                    iframe.style.display = 'none';
-                    iframe.name = 'gohighlevel-submit-' + Date.now();
-                    document.body.appendChild(iframe);
-                    
-                    // Create a hidden form that submits to the iframe
-                    const hiddenForm = document.createElement('form');
-                    hiddenForm.method = 'POST';
-                    hiddenForm.action = 'https://api.leadconnectorhq.com/widget/form/rU3lt5iV9NYWLbx3vvkC';
-                    hiddenForm.target = iframe.name;
-                    hiddenForm.style.display = 'none';
-                    
-                    // Copy all form data to the hidden form
-                    for (let [key, value] of formData.entries()) {
-                        const input = document.createElement('input');
-                        input.type = 'hidden';
-                        input.name = key;
-                        input.value = value;
-                        hiddenForm.appendChild(input);
+        // Auto-adjust iframe height to content
+        window.addEventListener('load', function() {
+            const iframe = document.getElementById('inline-rU3lt5iV9NYWLbx3vvkC');
+            const loadingMsg = document.querySelector('.form-loading');
+            
+            if (iframe) {
+                iframe.addEventListener('load', function() {
+                    if (loadingMsg) {
+                        loadingMsg.style.display = 'none';
                     }
-                    
-                    // Add GoHighLevel tracking fields
-                    const trackingFields = {
-                        'source': 'Website Contact Form',
-                        'form_name': 'Contact Us Page',
-                        'lead_source': 'Website',
-                        'utm_source': 'website',
-                        'utm_medium': 'contact_form'
-                    };
-                    
-                    Object.keys(trackingFields).forEach(key => {
-                        const input = document.createElement('input');
-                        input.type = 'hidden';
-                        input.name = key;
-                        input.value = trackingFields[key];
-                        hiddenForm.appendChild(input);
-                    });
-                    
-                    document.body.appendChild(hiddenForm);
-                    
-                    // Handle successful submission
-                    iframe.onload = function() {
-                        submitBtn.textContent = 'Message Sent!';
-                        submitBtn.style.background = '#28a745';
-                        form.reset();
-                        
-                        // Clean up after 2 seconds
-                        setTimeout(() => {
-                            if (document.body.contains(iframe)) {
-                                document.body.removeChild(iframe);
-                            }
-                            if (document.body.contains(hiddenForm)) {
-                                document.body.removeChild(hiddenForm);
-                            }
-                        }, 2000);
-                        
-                        // Reset button after 3 seconds
-                        setTimeout(() => {
-                            submitBtn.textContent = originalText;
-                            submitBtn.style.background = '#4F7CFF';
-                            submitBtn.disabled = false;
-                        }, 3000);
-                    };
-                    
-                    // Handle submission error
-                    iframe.onerror = function() {
-                        submitBtn.textContent = 'Error - Please Call (716) 405-0316';
-                        submitBtn.style.background = '#dc3545';
-                        
-                        // Clean up
-                        setTimeout(() => {
-                            if (document.body.contains(iframe)) {
-                                document.body.removeChild(iframe);
-                            }
-                            if (document.body.contains(hiddenForm)) {
-                                document.body.removeChild(hiddenForm);
-                            }
-                        }, 2000);
-                        
-                        // Reset button after 5 seconds
-                        setTimeout(() => {
-                            submitBtn.textContent = originalText;
-                            submitBtn.style.background = '#4F7CFF';
-                            submitBtn.disabled = false;
-                        }, 5000);
-                    };
-                    
-                    // Submit the hidden form
-                    hiddenForm.submit();
                 });
+
+                function adjustIframeHeight() {
+                    try {
+                        if (iframe.contentWindow && iframe.contentWindow.document) {
+                            const iframeDoc = iframe.contentWindow.document;
+                            const body = iframeDoc.body;
+                            const html = iframeDoc.documentElement;
+                            
+                            const height = Math.max(
+                                body.scrollHeight,
+                                body.offsetHeight,
+                                html.clientHeight,
+                                html.scrollHeight,
+                                html.offsetHeight
+                            );
+                            
+                            iframe.style.height = (height + 20) + 'px';
+                        }
+                    } catch (e) {
+                        console.log('Using postMessage for height adjustment');
+                    }
+                }
+
+                window.addEventListener('message', function(event) {
+                    if (event.origin.includes('leadconnectorhq.com') || event.origin.includes('msgsndr.com')) {
+                        if (event.data && event.data.height) {
+                            iframe.style.height = event.data.height + 'px';
+                        } else if (event.data && typeof event.data === 'object' && event.data.frameHeight) {
+                            iframe.style.height = event.data.frameHeight + 'px';
+                        }
+                    }
+                });
+
+                iframe.addEventListener('load', function() {
+                    adjustIframeHeight();
+                    setTimeout(adjustIframeHeight, 500);
+                    setTimeout(adjustIframeHeight, 1000);
+                    setTimeout(adjustIframeHeight, 2000);
+                });
+
+                setInterval(adjustIframeHeight, 3000);
             }
         });
     </script>
