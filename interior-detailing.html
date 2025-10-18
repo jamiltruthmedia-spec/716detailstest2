@@ -1316,58 +1316,106 @@
     // Transformation Gallery Functionality
     document.addEventListener('DOMContentLoaded', function() {
         const gallery = document.querySelector('.transformation-gallery');
-        if (!gallery) return;
+        if (!gallery) {
+            console.log('Gallery not found');
+            return;
+        }
         
         const slides = gallery.querySelectorAll('.gallery-slide');
         const prevBtn = gallery.querySelector('.prev-btn');
         const nextBtn = gallery.querySelector('.next-btn');
         const indicators = gallery.querySelectorAll('.indicator');
         
+        console.log('Gallery elements found:', {
+            slides: slides.length,
+            prevBtn: !!prevBtn,
+            nextBtn: !!nextBtn,
+            indicators: indicators.length
+        });
+        
+        if (slides.length === 0) {
+            console.log('No slides found');
+            return;
+        }
+        
         let currentSlide = 0;
         const totalSlides = slides.length;
         
         function showSlide(index) {
+            console.log('Showing slide:', index);
+            
             // Remove active class from all slides and indicators
-            slides.forEach(slide => slide.classList.remove('active'));
-            indicators.forEach(indicator => indicator.classList.remove('active'));
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (indicators[i]) {
+                    indicators[i].classList.remove('active');
+                }
+            });
             
             // Add active class to current slide and indicator
-            slides[index].classList.add('active');
-            indicators[index].classList.add('active');
+            if (slides[index]) {
+                slides[index].classList.add('active');
+            }
+            if (indicators[index]) {
+                indicators[index].classList.add('active');
+            }
             
             currentSlide = index;
         }
         
         function nextSlide() {
+            console.log('Next slide clicked');
             const nextIndex = (currentSlide + 1) % totalSlides;
             showSlide(nextIndex);
         }
         
         function prevSlide() {
+            console.log('Prev slide clicked');
             const prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
             showSlide(prevIndex);
         }
         
         // Event listeners for navigation buttons
         if (nextBtn) {
-            nextBtn.addEventListener('click', nextSlide);
+            nextBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Next button clicked');
+                nextSlide();
+            });
+        } else {
+            console.log('Next button not found');
         }
         
         if (prevBtn) {
-            prevBtn.addEventListener('click', prevSlide);
+            prevBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Prev button clicked');
+                prevSlide();
+            });
+        } else {
+            console.log('Prev button not found');
         }
         
         // Event listeners for indicators
         indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => showSlide(index));
+            indicator.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Indicator clicked:', index);
+                showSlide(index);
+            });
         });
         
         // Keyboard navigation
         document.addEventListener('keydown', function(e) {
-            if (gallery.matches(':hover')) {
+            if (gallery.matches(':hover') || gallery.contains(document.activeElement)) {
                 if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
                     prevSlide();
                 } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
                     nextSlide();
                 }
             }
@@ -1377,12 +1425,16 @@
         let autoPlayInterval;
         
         function startAutoPlay() {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+            }
             autoPlayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
         }
         
         function stopAutoPlay() {
             if (autoPlayInterval) {
                 clearInterval(autoPlayInterval);
+                autoPlayInterval = null;
             }
         }
         
@@ -1399,14 +1451,23 @@
         // Touch/swipe support for mobile
         let touchStartX = 0;
         let touchEndX = 0;
+        let isTouching = false;
         
         gallery.addEventListener('touchstart', function(e) {
+            isTouching = true;
             touchStartX = e.changedTouches[0].screenX;
+            stopAutoPlay();
         }, { passive: true });
         
         gallery.addEventListener('touchend', function(e) {
+            if (!isTouching) return;
+            
             touchEndX = e.changedTouches[0].screenX;
             handleSwipe();
+            isTouching = false;
+            
+            // Restart auto-play after a delay
+            setTimeout(startAutoPlay, 2000);
         }, { passive: true });
         
         function handleSwipe() {
@@ -1423,6 +1484,11 @@
                 }
             }
         }
+        
+        // Initialize first slide
+        showSlide(0);
+        
+        console.log('Gallery initialized successfully');
     });
     </script>
 </body>
