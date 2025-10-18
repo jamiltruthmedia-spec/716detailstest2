@@ -1643,6 +1643,28 @@
                                 setTimeout(preventMobileZoom, i * 100);
                             }
                             
+                            // Scroll to show full form and success message on mobile
+                            if (window.innerWidth <= 768) {
+                                setTimeout(function() {
+                                    const formElement = document.querySelector('.contact-form');
+                                    if (formElement) {
+                                        // Get form position
+                                        const formRect = formElement.getBoundingClientRect();
+                                        const formTop = formRect.top + window.pageYOffset;
+                                        const navHeight = 70; // Navbar height
+                                        const padding = 20; // Extra padding
+                                        
+                                        // Smooth scroll to show entire form
+                                        window.scrollTo({
+                                            top: formTop - navHeight - padding,
+                                            behavior: 'smooth'
+                                        });
+                                        
+                                        console.log('Scrolled to show success message');
+                                    }
+                                }, 300); // Delay to ensure message is rendered
+                            }
+                            
                             // Optional: Track with analytics
                             if (window.va) {
                                 window.va('track', 'Form Submission', {

@@ -115,6 +115,7 @@
         border-radius: 12px;
         transform: scale(1) !important;
         zoom: 1 !important;
+        scroll-margin-top: 90px;
     }
     
     .contact-form h3 {
@@ -138,6 +139,12 @@
     body, html {
         transform: scale(1) !important;
         zoom: 1 !important;
+        scroll-behavior: smooth;
+    }
+    
+    /* Ensure contact section has proper spacing */
+    .contact {
+        scroll-margin-top: 90px;
     }
 }
 
