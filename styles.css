@@ -1494,7 +1494,7 @@ a {
 .gallery-slider {
     position: relative;
     width: 100%;
-    height: auto;
+    min-height: 400px;
     overflow: visible;
     background: transparent;
 }
@@ -1789,7 +1789,7 @@ a {
     }
     
     .gallery-slider {
-        height: auto;
+        min-height: 350px;
     }
     
     .gallery-main-image {
@@ -1841,7 +1841,7 @@ a {
     }
     
     .gallery-slider {
-        height: auto;
+        min-height: 320px;
     }
     
     .gallery-main-image {
