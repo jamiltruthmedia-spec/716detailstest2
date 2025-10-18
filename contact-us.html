@@ -416,11 +416,12 @@
                             iframe.style.minHeight = '350px';
                             iframeContainer.classList.add('submitted');
                             
-                            // Scroll up more to show above "Request Your Free Quote"
+                            // Scroll to show "Request Your Free Quote" at the top
                             setTimeout(function() {
-                                const yOffset = 50; // Scroll 50px higher up
-                                const y = formContainer.getBoundingClientRect().top + window.pageYOffset - yOffset;
-                                window.scrollTo({ top: y, behavior: 'smooth' });
+                                formContainer.scrollIntoView({ 
+                                    behavior: 'smooth', 
+                                    block: 'start' 
+                                });
                             }, 200);
                         }
                     }, 600);
@@ -446,9 +447,10 @@
                             iframeContainer.classList.add('submitted');
                             
                             setTimeout(function() {
-                                const yOffset = 50; // Scroll 50px higher up
-                                const y = formContainer.getBoundingClientRect().top + window.pageYOffset - yOffset;
-                                window.scrollTo({ top: y, behavior: 'smooth' });
+                                formContainer.scrollIntoView({ 
+                                    behavior: 'smooth', 
+                                    block: 'start' 
+                                });
                             }, 200);
                         }
                     }
