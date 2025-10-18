@@ -416,11 +416,11 @@
                             iframe.style.minHeight = '350px';
                             iframeContainer.classList.add('submitted');
                             
-                            // Scroll to center the success message
+                            // Scroll to show "Request Your Free Quote" at the top
                             setTimeout(function() {
                                 formContainer.scrollIntoView({ 
                                     behavior: 'smooth', 
-                                    block: 'center' 
+                                    block: 'start' 
                                 });
                             }, 200);
                         }
@@ -449,7 +449,7 @@
                             setTimeout(function() {
                                 formContainer.scrollIntoView({ 
                                     behavior: 'smooth', 
-                                    block: 'center' 
+                                    block: 'start' 
                                 });
                             }, 200);
                         }
