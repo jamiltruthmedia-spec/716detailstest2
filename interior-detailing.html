@@ -266,6 +266,15 @@
                                     <polyline points="15,18 9,12 15,6"></polyline>
                                 </svg>
                             </button>
+                            <button class="gallery-btn shuffle-btn" aria-label="Toggle shuffle mode" title="Toggle shuffle mode">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="16,3 21,3 21,8"></polyline>
+                                    <line x1="4" y1="20" x2="21" y2="3"></line>
+                                    <polyline points="21,16 21,21 16,21"></polyline>
+                                    <line x1="15" y1="15" x2="21" y2="21"></line>
+                                    <line x1="4" y1="4" x2="9" y2="9"></line>
+                                </svg>
+                            </button>
                             <button class="gallery-btn next-btn" aria-label="Next image">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="9,18 15,12 9,6"></polyline>
@@ -1324,12 +1333,14 @@
         const slides = gallery.querySelectorAll('.gallery-slide');
         const prevBtn = gallery.querySelector('.prev-btn');
         const nextBtn = gallery.querySelector('.next-btn');
+        const shuffleBtn = gallery.querySelector('.shuffle-btn');
         const indicators = gallery.querySelectorAll('.indicator');
         
         console.log('Gallery elements found:', {
             slides: slides.length,
             prevBtn: !!prevBtn,
             nextBtn: !!nextBtn,
+            shuffleBtn: !!shuffleBtn,
             indicators: indicators.length
         });
         
@@ -1340,6 +1351,8 @@
         
         let currentSlide = 0;
         const totalSlides = slides.length;
+        let usedSlides = new Set();
+        let shuffleMode = true; // Start with shuffle mode enabled
         
         function showSlide(index) {
             console.log('Showing slide:', index);
@@ -1363,16 +1376,58 @@
             currentSlide = index;
         }
         
+        function getNextShuffledSlide() {
+            // If we've used all slides, reset the used slides
+            if (usedSlides.size >= totalSlides) {
+                usedSlides.clear();
+            }
+            
+            // Get available slides (not used yet)
+            const availableSlides = [];
+            for (let i = 0; i < totalSlides; i++) {
+                if (!usedSlides.has(i)) {
+                    availableSlides.push(i);
+                }
+            }
+            
+            // Pick a random slide from available ones
+            const randomIndex = Math.floor(Math.random() * availableSlides.length);
+            const selectedSlide = availableSlides[randomIndex];
+            usedSlides.add(selectedSlide);
+            
+            return selectedSlide;
+        }
+        
         function nextSlide() {
             console.log('Next slide clicked');
-            const nextIndex = (currentSlide + 1) % totalSlides;
-            showSlide(nextIndex);
+            if (shuffleMode) {
+                const nextIndex = getNextShuffledSlide();
+                showSlide(nextIndex);
+            } else {
+                const nextIndex = (currentSlide + 1) % totalSlides;
+                showSlide(nextIndex);
+            }
         }
         
         function prevSlide() {
             console.log('Prev slide clicked');
-            const prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
-            showSlide(prevIndex);
+            if (shuffleMode) {
+                const prevIndex = getNextShuffledSlide();
+                showSlide(prevIndex);
+            } else {
+                const prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(prevIndex);
+            }
+        }
+        
+        function toggleShuffle() {
+            shuffleMode = !shuffleMode;
+            if (shuffleMode) {
+                usedSlides.clear();
+                console.log('Shuffle mode enabled');
+            } else {
+                console.log('Sequential mode enabled');
+            }
         }
         
         // Event listeners for navigation buttons
@@ -1396,6 +1451,26 @@
             });
         } else {
             console.log('Prev button not found');
+        }
+        
+        if (shuffleBtn) {
+            shuffleBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Shuffle button clicked');
+                toggleShuffle();
+                
+                // Update button appearance
+                if (shuffleMode) {
+                    shuffleBtn.style.background = 'rgba(79,124,255,1)';
+                    shuffleBtn.style.transform = 'scale(1.1)';
+                } else {
+                    shuffleBtn.style.background = 'rgba(79,124,255,0.7)';
+                    shuffleBtn.style.transform = 'scale(1)';
+                }
+            });
+        } else {
+            console.log('Shuffle button not found');
         }
         
         // Event listeners for indicators
@@ -1428,7 +1503,10 @@
             if (autoPlayInterval) {
                 clearInterval(autoPlayInterval);
             }
-            autoPlayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            // Use shuffle mode for auto-play to show different images
+            const originalShuffleMode = shuffleMode;
+            shuffleMode = true;
+            autoPlayInterval = setInterval(nextSlide, 4000); // Change slide every 4 seconds
         }
         
         function stopAutoPlay() {
