@@ -1468,6 +1468,387 @@ a {
     line-height: 1.7;
 }
 
+/* Transformation Gallery Styles */
+.transformation-gallery {
+    margin: 3rem 0;
+}
+
+.gallery-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    background: #000000;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.gallery-slider {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.gallery-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-slide.active {
+    opacity: 1;
+}
+
+.gallery-main-image {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.gallery-caption {
+    height: 30%;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #000000 0%, #111111 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.gallery-caption h3 {
+    color: #4F7CFF;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.gallery-caption p {
+    color: #cccccc;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.gallery-navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.gallery-btn {
+    background: rgba(79,124,255,0.9);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: all;
+    color: white;
+    box-shadow: 0 4px 15px rgba(79,124,255,0.3);
+}
+
+.gallery-btn:hover {
+    background: rgba(79,124,255,1);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(79,124,255,0.4);
+}
+
+.gallery-btn:active {
+    transform: scale(0.95);
+}
+
+.gallery-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.gallery-indicators {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    pointer-events: all;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: #4F7CFF;
+    transform: scale(1.2);
+}
+
+.indicator:hover {
+    background: rgba(79,124,255,0.7);
+    transform: scale(1.1);
+}
+
+/* Interior Detailing Page Image Styles */
+.showcase-main-image,
+.gallery-image,
+.result-image,
+.equipment-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    object-fit: cover;
+}
+
+.showcase-main-image {
+    max-width: 800px;
+    margin: 0 auto;
+    display: block;
+}
+
+.gallery-image {
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.result-image {
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.equipment-image {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Gallery hover effects */
+.gallery-image:hover,
+.result-image:hover,
+.equipment-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(79,124,255,0.3);
+}
+
+/* Gallery grid layouts */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+/* Gallery item styling */
+.gallery-item,
+.result-item,
+.equipment-item {
+    position: relative;
+    background: #000000;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover,
+.result-item:hover,
+.equipment-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(79,124,255,0.2);
+    border-color: #4F7CFF;
+}
+
+/* Gallery captions */
+.gallery-caption,
+.result-overlay,
+.equipment-content {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #000000 0%, #111111 100%);
+}
+
+.gallery-caption h3,
+.result-overlay h3,
+.equipment-content h3 {
+    color: #4F7CFF;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.gallery-caption p,
+.result-overlay p,
+.equipment-content p {
+    color: #cccccc;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Result overlay positioning */
+.result-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.result-item:hover .result-overlay {
+    transform: translateY(0);
+}
+
+/* Gallery Responsive Styles */
+@media (max-width: 768px) {
+    .gallery-slider {
+        height: 400px;
+    }
+    
+    .gallery-main-image {
+        height: 65%;
+    }
+    
+    .gallery-caption {
+        height: 35%;
+        padding: 1rem;
+    }
+    
+    .gallery-caption h3 {
+        font-size: 1.25rem;
+    }
+    
+    .gallery-caption p {
+        font-size: 0.9rem;
+    }
+    
+    .gallery-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .gallery-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .gallery-navigation {
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-slider {
+        height: 350px;
+    }
+    
+    .gallery-main-image {
+        height: 60%;
+    }
+    
+    .gallery-caption {
+        height: 40%;
+        padding: 0.75rem;
+    }
+    
+    .gallery-caption h3 {
+        font-size: 1.1rem;
+    }
+    
+    .gallery-caption p {
+        font-size: 0.85rem;
+    }
+    
+    .gallery-btn {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .gallery-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gallery-grid,
+    .results-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .equipment-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-image,
+    .result-image,
+    .equipment-image {
+        height: 250px;
+    }
+    
+    .showcase-main-image {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-image,
+    .result-image,
+    .equipment-image {
+        height: 200px;
+    }
+    
+    .gallery-caption,
+    .result-overlay,
+    .equipment-content {
+        padding: 1rem;
+    }
+}
+
 /* Contact Section */
 .contact, .contact-section {
     padding: 100px 0;
