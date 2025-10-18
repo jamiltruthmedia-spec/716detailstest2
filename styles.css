@@ -22,6 +22,8 @@
     box-shadow: 0 8px 30px rgba(79, 124, 255, 0.15);
     border: 1px solid rgba(79, 124, 255, 0.2);
     transition: all 0.3s ease;
+    transform: scale(1);
+    transform-origin: center;
 }
 
 .contact-form:hover {
@@ -50,6 +52,16 @@
     border: none !important;
     box-shadow: none !important;
     border-radius: 12px;
+    touch-action: manipulation;
+}
+
+.gohighlevel-form-container input,
+.gohighlevel-form-container select,
+.gohighlevel-form-container textarea,
+.gohighlevel-form-container button {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 16px !important;
 }
 
 #inline-rU3lt5iV9NYWLbx3vvkC {
@@ -62,6 +74,8 @@
     height: auto;
     background: transparent !important;
     box-shadow: none !important;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .form-loading {
@@ -99,6 +113,8 @@
         max-width: 100%;
         padding: 2rem 1.5rem;
         border-radius: 12px;
+        transform: scale(1) !important;
+        zoom: 1 !important;
     }
     
     .contact-form h3 {
@@ -109,11 +125,19 @@
     #inline-rU3lt5iV9NYWLbx3vvkC {
         min-height: 450px;
         border-radius: 8px !important;
+        transform: scale(1) !important;
+        zoom: 1 !important;
     }
     
     .form-loading {
         padding: 2rem 1rem;
         font-size: 1rem;
+    }
+    
+    /* Force no zoom on mobile */
+    body, html {
+        transform: scale(1) !important;
+        zoom: 1 !important;
     }
 }
 
