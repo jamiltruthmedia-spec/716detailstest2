@@ -1494,7 +1494,7 @@ a {
 .gallery-slider {
     position: relative;
     width: 100%;
-    min-height: 400px;
+    min-height: 500px;
     overflow: visible;
     background: transparent;
 }
@@ -1516,7 +1516,7 @@ a {
 
 .gallery-main-image {
     width: 100%;
-    height: 250px;
+    height: 350px;
     object-fit: cover;
     object-position: center;
     border-radius: 12px 12px 0 0;
@@ -1556,7 +1556,7 @@ a {
 
 .gallery-navigation {
     position: absolute;
-    top: 40%;
+    top: 35%;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -1789,11 +1789,11 @@ a {
     }
     
     .gallery-slider {
-        min-height: 350px;
+        min-height: 420px;
     }
     
     .gallery-main-image {
-        height: 220px;
+        height: 300px;
         object-fit: cover;
         object-position: center;
     }
@@ -1841,11 +1841,11 @@ a {
     }
     
     .gallery-slider {
-        min-height: 320px;
+        min-height: 380px;
     }
     
     .gallery-main-image {
-        height: 200px;
+        height: 260px;
         object-fit: cover;
         object-position: center;
     }
