@@ -1382,6 +1382,7 @@
                 e.preventDefault();
                 e.stopPropagation();
                 console.log('Next button clicked');
+                pauseAutoPlayForUserInteraction();
                 nextSlide();
             });
             
@@ -1395,6 +1396,7 @@
                 e.preventDefault();
                 e.stopPropagation();
                 console.log('Next button touched');
+                pauseAutoPlayForUserInteraction();
                 nextSlide();
             }, { passive: false });
         } else {
@@ -1406,6 +1408,7 @@
                 e.preventDefault();
                 e.stopPropagation();
                 console.log('Prev button clicked');
+                pauseAutoPlayForUserInteraction();
                 prevSlide();
             });
             
@@ -1419,6 +1422,7 @@
                 e.preventDefault();
                 e.stopPropagation();
                 console.log('Prev button touched');
+                pauseAutoPlayForUserInteraction();
                 prevSlide();
             }, { passive: false });
         } else {
@@ -1432,6 +1436,7 @@
                 e.preventDefault();
                 e.stopPropagation();
                 console.log('Indicator clicked:', index);
+                pauseAutoPlayForUserInteraction();
                 showSlide(index);
             });
         });
@@ -1441,22 +1446,38 @@
             if (gallery.matches(':hover') || gallery.contains(document.activeElement)) {
                 if (e.key === 'ArrowLeft') {
                     e.preventDefault();
+                    pauseAutoPlayForUserInteraction();
                     prevSlide();
                 } else if (e.key === 'ArrowRight') {
                     e.preventDefault();
+                    pauseAutoPlayForUserInteraction();
                     nextSlide();
                 }
             }
         });
         
-        // Auto-play functionality (optional)
+        // Auto-play functionality with proper pause behavior
         let autoPlayInterval;
+        let userInteractionTimeout;
+        let isUserInteracting = false;
         
         function startAutoPlay() {
+            // Clear any existing intervals
             if (autoPlayInterval) {
                 clearInterval(autoPlayInterval);
             }
-            autoPlayInterval = setInterval(nextSlide, 4000); // Change slide every 4 seconds
+            if (userInteractionTimeout) {
+                clearTimeout(userInteractionTimeout);
+            }
+            
+            // Only start auto-play if user isn't actively interacting
+            if (!isUserInteracting) {
+                autoPlayInterval = setInterval(function() {
+                    if (!isUserInteracting) {
+                        nextSlide();
+                    }
+                }, 5000); // Change slide every 5 seconds
+            }
         }
         
         function stopAutoPlay() {
@@ -1466,15 +1487,34 @@
             }
         }
         
+        function pauseAutoPlayForUserInteraction() {
+            isUserInteracting = true;
+            stopAutoPlay();
+            
+            // Clear any existing timeout
+            if (userInteractionTimeout) {
+                clearTimeout(userInteractionTimeout);
+            }
+            
+            // Resume auto-play after 20 seconds of no interaction
+            userInteractionTimeout = setTimeout(function() {
+                isUserInteracting = false;
+                startAutoPlay();
+            }, 20000); // 20 seconds
+        }
+        
         // Start auto-play
         startAutoPlay();
         
         // Pause auto-play on hover
-        gallery.addEventListener('mouseenter', stopAutoPlay);
-        gallery.addEventListener('mouseleave', startAutoPlay);
+        gallery.addEventListener('mouseenter', function() {
+            isUserInteracting = true;
+            stopAutoPlay();
+        });
         
-        // Pause auto-play when user interacts
-        gallery.addEventListener('click', stopAutoPlay);
+        gallery.addEventListener('mouseleave', function() {
+            // Don't immediately restart - let the 20-second timer handle it
+        });
         
         // Touch/swipe support for mobile
         let touchStartX = 0;
@@ -1504,9 +1544,6 @@
             const touchDuration = Date.now() - touchStartTime;
             handleSwipe(touchDuration);
             isTouching = false;
-            
-            // Restart auto-play after a delay
-            setTimeout(startAutoPlay, 3000);
         }, { passive: true });
         
         function handleSwipe(duration) {
@@ -1515,6 +1552,7 @@
             
             // Only register swipe if it's quick enough and far enough
             if (Math.abs(diff) > swipeThreshold && duration < 500) {
+                pauseAutoPlayForUserInteraction();
                 if (diff > 0) {
                     // Swipe left - next slide
                     nextSlide();
