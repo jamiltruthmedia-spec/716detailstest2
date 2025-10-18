@@ -129,6 +129,7 @@
             overflow: visible;
             border-radius: 8px;
             margin-bottom: 2rem;
+            transition: min-height 0.5s ease;
         }
         
         .iframe-container iframe {
@@ -137,6 +138,7 @@
             min-height: 550px;
             border: none;
             border-radius: 8px;
+            transition: min-height 0.5s ease;
         }
         
         /* Emergency CTA */
@@ -162,18 +164,18 @@
         
         @media (max-width: 768px) {
             .contact-hero {
-                padding: 140px 15px 50px;
+                padding: 160px 15px 50px;
                 min-height: auto;
             }
             
             .contact-hero h1 {
-                font-size: 2rem;
+                font-size: 1.85rem;
                 margin-bottom: 1.25rem;
                 line-height: 1.3;
             }
             
             .contact-hero p {
-                font-size: 1rem;
+                font-size: 0.95rem;
                 margin-bottom: 1.5rem;
                 line-height: 1.5;
             }
@@ -211,10 +213,20 @@
                 min-height: 720px;
                 margin: 0 -0.5rem 3rem -0.5rem;
                 width: calc(100% + 1rem);
+                transition: min-height 0.5s ease;
             }
             
             .iframe-container iframe {
                 min-height: 720px;
+                transition: min-height 0.5s ease;
+            }
+            
+            .iframe-container.submitted {
+                min-height: 400px !important;
+            }
+            
+            .iframe-container.submitted iframe {
+                min-height: 400px !important;
             }
             
             .emergency-contact {
@@ -224,16 +236,16 @@
         
         @media (max-width: 480px) {
             .contact-hero {
-                padding: 130px 12px 40px;
+                padding: 150px 12px 40px;
             }
             
             .contact-hero h1 {
-                font-size: 1.65rem;
+                font-size: 1.6rem;
                 line-height: 1.3;
             }
             
             .contact-hero p {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
             
             .contact-main {
@@ -255,10 +267,20 @@
                 min-height: 780px;
                 margin: 0 -0.25rem 3rem -0.25rem;
                 width: calc(100% + 0.5rem);
+                transition: min-height 0.5s ease;
             }
             
             .iframe-container iframe {
                 min-height: 780px;
+                transition: min-height 0.5s ease;
+            }
+            
+            .iframe-container.submitted {
+                min-height: 400px !important;
+            }
+            
+            .iframe-container.submitted iframe {
+                min-height: 400px !important;
             }
             
             .emergency-contact {
@@ -369,6 +391,77 @@
             </div>
         </div>
     </section>
+
+    <!-- Form Submission Handler Script -->
+    <script>
+        // Detect form submission and shrink iframe to show success message centered
+        (function() {
+            const iframe = document.getElementById('inline-rU3lt5iV9NYWLbx3vvkC');
+            const formContainer = document.querySelector('.form-container');
+            const iframeContainer = document.querySelector('.iframe-container');
+            
+            if (!iframe || !formContainer || !iframeContainer) return;
+            
+            // Listen for messages from the iframe (form submission detection)
+            window.addEventListener('message', function(event) {
+                // Check if message is from the Go High Level form
+                if (event.origin === 'https://api.leadconnectorhq.com') {
+                    setTimeout(function() {
+                        // Shrink iframe on mobile to fit success message
+                        if (window.innerWidth <= 768) {
+                            iframeContainer.style.minHeight = '350px';
+                            iframe.style.minHeight = '350px';
+                            iframeContainer.classList.add('submitted');
+                            
+                            // Scroll to center the success message
+                            setTimeout(function() {
+                                formContainer.scrollIntoView({ 
+                                    behavior: 'smooth', 
+                                    block: 'center' 
+                                });
+                            }, 200);
+                        }
+                    }, 600);
+                }
+            });
+            
+            // Additional detection: watch for height changes in iframe
+            let checkCount = 0;
+            const checkInterval = setInterval(function() {
+                checkCount++;
+                
+                // Check if form is likely submitted by looking at form elements
+                try {
+                    const iframeDoc = iframe.contentWindow.document;
+                    const thankYouMessage = iframeDoc.querySelector('[class*="thank"], [class*="success"], [class*="submitted"]');
+                    
+                    if (thankYouMessage) {
+                        clearInterval(checkInterval);
+                        
+                        if (window.innerWidth <= 768) {
+                            iframeContainer.style.minHeight = '350px';
+                            iframe.style.minHeight = '350px';
+                            iframeContainer.classList.add('submitted');
+                            
+                            setTimeout(function() {
+                                formContainer.scrollIntoView({ 
+                                    behavior: 'smooth', 
+                                    block: 'center' 
+                                });
+                            }, 200);
+                        }
+                    }
+                } catch(e) {
+                    // Cross-origin restriction, fallback method
+                }
+                
+                // Stop checking after 30 seconds
+                if (checkCount > 30) {
+                    clearInterval(checkInterval);
+                }
+            }, 1000);
+        })();
+    </script>
 
     <!-- Emergency Contact CTA -->
     <section class="emergency-contact">
