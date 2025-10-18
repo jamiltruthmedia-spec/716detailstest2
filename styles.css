@@ -9,89 +9,151 @@
 /* Reviews Section Styling */
 .reviews-section{ padding:100px 0;background:#111111;text-align:center;}.reviews-section h2{ font-size:3rem;margin-bottom:4rem;font-weight:700;color:#ffffff;}.reviews-widget-container{ margin-bottom:3rem;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.05);background:#000000;}.reviews-widget-container iframe{ border-radius:16px;min-height:400px;}.reviews-grid{ display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2.5rem;margin-bottom:3rem;}.review-card{ background:#000000;padding:2.5rem;border-radius:16px;box-shadow:0 8px 30px rgba(255,255,255,0.08);transition:all 0.3s ease;border:1px solid rgba(255,255,255,0.05);text-align:center;}.review-card:hover{ transform:translateY(-10px);box-shadow:0 15px 40px rgba(79,124,255,0.3);border-color:#4F7CFF;}.review-card .stars{ font-size:1.5rem;color:#FFD700;margin-bottom:1.5rem;display:block;}.review-text{ font-size:1.1rem;line-height:1.7;color:#ffffff;margin-bottom:2rem;font-style:italic;}.reviewer-info{ text-align:center;}.reviewer-name{ font-size:1.1rem;font-weight:600;color:#4F7CFF;margin-bottom:0.5rem;}.reviewer-location{ font-size:1rem;color:#cccccc;}.reviews-cta{ text-align:center;margin-top:2rem;}.reviews-cta .cta-btn{ background:#4F7CFF;color:white;padding:1rem 2rem;text-decoration:none;border-radius:8px;font-weight:600;font-size:1rem;transition:all 0.3s ease;display:inline-block;}.reviews-cta .cta-btn:hover{ background:#3B5FE6;transform:translateY(-2px);}
 
-/* GoHighLevel Form - Transparent Background */
+/* GoHighLevel Form - Enhanced Integration */
 .contact-form {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    background: #111111;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(79, 124, 255, 0.15);
+    border: 1px solid rgba(79, 124, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.contact-form:hover {
+    box-shadow: 0 12px 40px rgba(79, 124, 255, 0.25);
+    border-color: rgba(79, 124, 255, 0.4);
+    transform: translateY(-2px);
 }
 
 .contact-form h3 {
     color: #ffffff;
     margin: 0 0 1.5rem 0;
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 1.8rem;
+    font-weight: 700;
     text-align: center;
+    background: linear-gradient(135deg, #ffffff 0%, #4F7CFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .gohighlevel-form-container {
     width: 100%;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
+    border-radius: 12px;
 }
 
 #inline-rU3lt5iV9NYWLbx3vvkC {
-    width: 100%;
-    border: none;
-    border-radius: 8px;
+    width: 100% !important;
+    border: none !important;
+    border-radius: 12px !important;
     display: block;
     transition: height 0.3s ease;
-    min-height: 400px;
+    min-height: 500px;
+    height: auto;
     background: transparent !important;
     box-shadow: none !important;
 }
 
 .form-loading {
     text-align: center;
-    padding: 20px;
-    color: rgba(255,255,255,0.6);
-    font-size: 14px;
+    padding: 3rem 2rem;
+    color: #4F7CFF;
+    font-size: 1.1rem;
     background: transparent;
     border: none;
     box-shadow: none;
+    font-weight: 500;
+}
+
+.form-loading::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 1rem;
+    border: 3px solid rgba(79, 124, 255, 0.3);
+    border-top: 3px solid #4F7CFF;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes formSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .contact-form {
-        margin: 0 10px;
-        max-width: calc(100% - 20px);
+        margin: 0;
+        max-width: 100%;
+        padding: 2rem 1.5rem;
+        border-radius: 12px;
     }
     
     .contact-form h3 {
-        font-size: 20px;
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    #inline-rU3lt5iV9NYWLbx3vvkC {
+        min-height: 450px;
+        border-radius: 8px !important;
+    }
+    
+    .form-loading {
+        padding: 2rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form {
+        padding: 1.5rem 1rem;
+        border-radius: 8px;
+    }
+    
+    .contact-form h3 {
+        font-size: 1.3rem;
         margin-bottom: 1rem;
     }
     
     #inline-rU3lt5iV9NYWLbx3vvkC {
-        min-height: 350px;
+        min-height: 400px;
+    }
+    
+    .form-loading {
+        padding: 1.5rem 0.5rem;
+        font-size: 0.95rem;
     }
 }
 
-/* GoHighLevel Form Custom Styling - Remove Black Box */
-.contact-form iframe{ 
-    background:transparent !important;
-    border:none !important;
-    box-shadow:none !important;
+/* Override GoHighLevel's default styling */
+.contact-form iframe { 
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
-/* Override GoHighLevel's black background */
 #inline-rU3lt5iV9NYWLbx3vvkC {
     background: transparent !important;
     box-shadow: none !important;
 }
 
-/* Target the iframe content to remove black backgrounds */
 .contact-form iframe[src*="leadconnectorhq.com"] {
     background: transparent !important;
 }
 
-/* Remove any container backgrounds that might be creating the black box */
 .contact-form .gohighlevel-form-container {
     background: transparent !important;
     box-shadow: none !important;

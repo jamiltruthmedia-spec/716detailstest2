@@ -1066,11 +1066,10 @@
                             data-deactivation-type="neverDeactivate"
                             data-deactivation-value=""
                             data-form-name="Contact Us Page"
-                            data-height="undefined"
+                            data-height="492"
                             data-layout-iframe-id="inline-rU3lt5iV9NYWLbx3vvkC"
                             data-form-id="rU3lt5iV9NYWLbx3vvkC"
-                            title="Contact Us Page"
-                            style="height: 600px;">
+                            title="Contact Us Page">
                         </iframe>
                     </div>
                 </div>
@@ -1547,20 +1546,32 @@
     <script src="https://link.msgsndr.com/js/form_embed.js"></script>
     
     <script>
-        // Auto-adjust iframe height to content
-        window.addEventListener('load', function() {
-            const iframe = document.getElementById('inline-rU3lt5iV9NYWLbx3vvkC');
-            const loadingMsg = document.querySelector('.form-loading');
+        // Enhanced iframe height adjustment and tracking
+        (function() {
+            let formLoaded = false;
             
-            if (iframe) {
+            window.addEventListener('load', function() {
+                const iframe = document.getElementById('inline-rU3lt5iV9NYWLbx3vvkC');
+                const loadingMsg = document.querySelector('.form-loading');
+                
+                if (!iframe) {
+                    console.warn('GoHighLevel form iframe not found');
+                    return;
+                }
+                
+                // Hide loading message when iframe loads
                 iframe.addEventListener('load', function() {
                     if (loadingMsg) {
                         loadingMsg.style.display = 'none';
                     }
+                    formLoaded = true;
+                    console.log('GoHighLevel form loaded successfully');
                 });
 
+                // Dynamic height adjustment function
                 function adjustIframeHeight() {
                     try {
+                        // Try to access iframe content for height
                         if (iframe.contentWindow && iframe.contentWindow.document) {
                             const iframeDoc = iframe.contentWindow.document;
                             const body = iframeDoc.body;
@@ -1574,33 +1585,75 @@
                                 html.offsetHeight
                             );
                             
-                            iframe.style.height = (height + 20) + 'px';
+                            if (height > 100) {
+                                iframe.style.height = (height + 40) + 'px';
+                            }
                         }
                     } catch (e) {
+                        // Cross-origin restriction, use postMessage instead
                         console.log('Using postMessage for height adjustment');
                     }
                 }
 
+                // Listen for postMessage from iframe
                 window.addEventListener('message', function(event) {
                     if (event.origin.includes('leadconnectorhq.com') || event.origin.includes('msgsndr.com')) {
+                        // Handle height messages
                         if (event.data && event.data.height) {
                             iframe.style.height = event.data.height + 'px';
+                            console.log('Form height updated:', event.data.height);
                         } else if (event.data && typeof event.data === 'object' && event.data.frameHeight) {
                             iframe.style.height = event.data.frameHeight + 'px';
+                            console.log('Form height updated:', event.data.frameHeight);
+                        }
+                        
+                        // Track form submission
+                        if (event.data && event.data.type === 'form-submitted') {
+                            console.log('Form submitted successfully to Go High Level');
+                            
+                            // Optional: Track with analytics
+                            if (window.va) {
+                                window.va('track', 'Form Submission', {
+                                    form_name: 'Contact Us Page',
+                                    form_id: 'rU3lt5iV9NYWLbx3vvkC'
+                                });
+                            }
                         }
                     }
                 });
 
+                // Adjust height on load and at intervals
                 iframe.addEventListener('load', function() {
                     adjustIframeHeight();
-                    setTimeout(adjustIframeHeight, 500);
-                    setTimeout(adjustIframeHeight, 1000);
-                    setTimeout(adjustIframeHeight, 2000);
+                    setTimeout(adjustIframeHeight, 300);
+                    setTimeout(adjustIframeHeight, 800);
+                    setTimeout(adjustIframeHeight, 1500);
+                    setTimeout(adjustIframeHeight, 3000);
                 });
 
-                setInterval(adjustIframeHeight, 3000);
-            }
-        });
+                // Continuous height monitoring (every 5 seconds)
+                setInterval(adjustIframeHeight, 5000);
+
+                // Adjust on window resize for responsive behavior
+                let resizeTimer;
+                window.addEventListener('resize', function() {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(function() {
+                        adjustIframeHeight();
+                    }, 250);
+                });
+                
+                // Initial adjustment
+                setTimeout(adjustIframeHeight, 100);
+            });
+            
+            // Track page visibility changes to ensure form stays functional
+            document.addEventListener('visibilitychange', function() {
+                if (!document.hidden && formLoaded) {
+                    console.log('Page visible - GoHighLevel form ready');
+                }
+            });
+        })();
     </script>
     
 
