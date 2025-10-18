@@ -1588,15 +1588,6 @@ a {
     height: 20px;
 }
 
-.shuffle-btn {
-    background: rgba(79,124,255,1) !important;
-    transform: scale(1.1);
-}
-
-.shuffle-btn:hover {
-    background: rgba(79,124,255,1) !important;
-    transform: scale(1.2) !important;
-}
 
 .gallery-indicators {
     position: absolute;
