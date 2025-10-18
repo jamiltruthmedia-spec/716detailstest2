@@ -93,8 +93,9 @@
             border-radius: 16px;
             border: 1px solid rgba(255,255,255,0.05);
             box-shadow: 0 8px 30px rgba(255,255,255,0.08);
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            width: 100%;
         }
         
         .form-container h2 {
@@ -114,15 +115,15 @@
         .iframe-container {
             position: relative;
             width: 100%;
-            min-height: 500px;
-            overflow: hidden;
+            min-height: 550px;
+            overflow: visible;
             border-radius: 8px;
         }
         
         .iframe-container iframe {
             width: 100%;
             height: 100%;
-            min-height: 500px;
+            min-height: 550px;
             border: none;
             border-radius: 8px;
         }
@@ -150,7 +151,7 @@
         
         @media (max-width: 768px) {
             .contact-hero {
-                padding: 120px 20px 40px;
+                padding: 120px 15px 40px;
             }
             
             .contact-hero h1 {
@@ -167,37 +168,62 @@
             }
             
             .contact-main {
-                padding: 60px 20px;
+                padding: 60px 15px;
             }
             
             .form-container {
-                padding: 2rem;
+                padding: 1.5rem 1rem;
+                max-width: 100%;
+                border-radius: 12px;
+            }
+            
+            .form-container h2 {
+                font-size: 1.75rem;
+                margin-bottom: 1.5rem;
             }
             
             .iframe-container {
-                min-height: 600px;
+                min-height: 700px;
+                margin: 0 -0.5rem;
+                width: calc(100% + 1rem);
             }
             
             .iframe-container iframe {
-                min-height: 600px;
+                min-height: 700px;
             }
         }
         
         @media (max-width: 480px) {
+            .contact-hero {
+                padding: 110px 10px 30px;
+            }
+            
             .contact-hero h1 {
-                font-size: 2rem;
+                font-size: 1.85rem;
+            }
+            
+            .contact-main {
+                padding: 50px 10px;
             }
             
             .form-container {
-                padding: 1.5rem;
+                padding: 1.25rem 0.75rem;
+                border-radius: 8px;
+            }
+            
+            .form-container h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.25rem;
             }
             
             .iframe-container {
-                min-height: 650px;
+                min-height: 750px;
+                margin: 0 -0.25rem;
+                width: calc(100% + 0.5rem);
             }
             
             .iframe-container iframe {
-                min-height: 650px;
+                min-height: 750px;
             }
         }
     </style>
