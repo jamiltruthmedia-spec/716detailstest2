@@ -1516,7 +1516,7 @@ a {
     height: 300px;
     object-fit: cover;
     object-position: center;
-    border-radius: 12px;
+    border-radius: 16px;
     transition: all 0.3s ease;
     flex-shrink: 0;
     box-shadow: 0 8px 30px rgba(0,0,0,0.3);
