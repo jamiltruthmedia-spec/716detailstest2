@@ -1514,6 +1514,11 @@ a {
     object-fit: cover;
     object-position: center;
     border-radius: 0;
+    transition: transform 0.3s ease;
+}
+
+.gallery-slide:hover .gallery-main-image {
+    transform: scale(1.02);
 }
 
 .gallery-caption {
@@ -1555,6 +1560,7 @@ a {
     padding: 0 1rem;
     transform: translateY(-50%);
     pointer-events: none;
+    z-index: 20;
 }
 
 .gallery-btn {
@@ -1571,6 +1577,8 @@ a {
     pointer-events: all;
     color: white;
     box-shadow: 0 4px 15px rgba(79,124,255,0.3);
+    z-index: 25;
+    touch-action: manipulation;
 }
 
 .gallery-btn:hover {
@@ -1775,19 +1783,21 @@ a {
     }
     
     .gallery-btn {
-        width: 45px;
-        height: 45px;
-        z-index: 10;
+        width: 55px;
+        height: 55px;
+        z-index: 30;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
     }
     
     .gallery-btn svg {
-        width: 18px;
-        height: 18px;
+        width: 20px;
+        height: 20px;
     }
     
     .gallery-navigation {
         padding: 0 0.75rem;
-        z-index: 10;
+        z-index: 25;
     }
     
     .gallery-indicators {
@@ -1825,19 +1835,21 @@ a {
     }
     
     .gallery-btn {
-        width: 40px;
-        height: 40px;
-        z-index: 10;
+        width: 50px;
+        height: 50px;
+        z-index: 30;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
     }
     
     .gallery-btn svg {
-        width: 16px;
-        height: 16px;
+        width: 18px;
+        height: 18px;
     }
     
     .gallery-navigation {
         padding: 0 0.5rem;
-        z-index: 10;
+        z-index: 25;
     }
     
     .indicator {

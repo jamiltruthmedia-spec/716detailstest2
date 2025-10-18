@@ -1364,37 +1364,15 @@
             currentSlide = index;
         }
         
-        function getNextShuffledSlide() {
-            // If we've used all slides, reset the used slides
-            if (usedSlides.size >= totalSlides) {
-                usedSlides.clear();
-            }
-            
-            // Get available slides (not used yet)
-            const availableSlides = [];
-            for (let i = 0; i < totalSlides; i++) {
-                if (!usedSlides.has(i)) {
-                    availableSlides.push(i);
-                }
-            }
-            
-            // Pick a random slide from available ones
-            const randomIndex = Math.floor(Math.random() * availableSlides.length);
-            const selectedSlide = availableSlides[randomIndex];
-            usedSlides.add(selectedSlide);
-            
-            return selectedSlide;
-        }
-        
         function nextSlide() {
             console.log('Next slide clicked');
-            const nextIndex = getNextShuffledSlide();
+            const nextIndex = (currentSlide + 1) % totalSlides;
             showSlide(nextIndex);
         }
         
         function prevSlide() {
             console.log('Prev slide clicked');
-            const prevIndex = getNextShuffledSlide();
+            const prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
             showSlide(prevIndex);
         }
         
@@ -1406,6 +1384,19 @@
                 console.log('Next button clicked');
                 nextSlide();
             });
+            
+            // Add touch events for better mobile support
+            nextBtn.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }, { passive: false });
+            
+            nextBtn.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Next button touched');
+                nextSlide();
+            }, { passive: false });
         } else {
             console.log('Next button not found');
         }
@@ -1417,6 +1408,19 @@
                 console.log('Prev button clicked');
                 prevSlide();
             });
+            
+            // Add touch events for better mobile support
+            prevBtn.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }, { passive: false });
+            
+            prevBtn.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Prev button touched');
+                prevSlide();
+            }, { passive: false });
         } else {
             console.log('Prev button not found');
         }
@@ -1476,29 +1480,41 @@
         let touchStartX = 0;
         let touchEndX = 0;
         let isTouching = false;
+        let touchStartTime = 0;
         
         gallery.addEventListener('touchstart', function(e) {
+            // Don't interfere with button touches
+            if (e.target.closest('.gallery-btn')) return;
+            
             isTouching = true;
             touchStartX = e.changedTouches[0].screenX;
+            touchStartTime = Date.now();
             stopAutoPlay();
+        }, { passive: true });
+        
+        gallery.addEventListener('touchmove', function(e) {
+            if (!isTouching) return;
+            // Allow some movement for better touch handling
         }, { passive: true });
         
         gallery.addEventListener('touchend', function(e) {
             if (!isTouching) return;
             
             touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
+            const touchDuration = Date.now() - touchStartTime;
+            handleSwipe(touchDuration);
             isTouching = false;
             
             // Restart auto-play after a delay
-            setTimeout(startAutoPlay, 2000);
+            setTimeout(startAutoPlay, 3000);
         }, { passive: true });
         
-        function handleSwipe() {
-            const swipeThreshold = 50;
+        function handleSwipe(duration) {
+            const swipeThreshold = 30;
             const diff = touchStartX - touchEndX;
             
-            if (Math.abs(diff) > swipeThreshold) {
+            // Only register swipe if it's quick enough and far enough
+            if (Math.abs(diff) > swipeThreshold && duration < 500) {
                 if (diff > 0) {
                     // Swipe left - next slide
                     nextSlide();
