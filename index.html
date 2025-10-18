@@ -1645,24 +1645,30 @@
                             
                             // Scroll to show full form and success message on mobile
                             if (window.innerWidth <= 768) {
-                                setTimeout(function() {
+                                // Function to scroll to form top
+                                function scrollToFormTop() {
                                     const formElement = document.querySelector('.contact-form');
                                     if (formElement) {
-                                        // Get form position
+                                        // Get the exact top position of the form
                                         const formRect = formElement.getBoundingClientRect();
-                                        const formTop = formRect.top + window.pageYOffset;
-                                        const navHeight = 70; // Navbar height
-                                        const padding = 20; // Extra padding
+                                        const absoluteTop = window.pageYOffset + formRect.top;
+                                        const navHeight = 80; // Navbar height + buffer
                                         
-                                        // Smooth scroll to show entire form
-                                        window.scrollTo({
-                                            top: formTop - navHeight - padding,
-                                            behavior: 'smooth'
-                                        });
+                                        // Calculate scroll position to show top of form
+                                        const scrollTarget = absoluteTop - navHeight;
                                         
-                                        console.log('Scrolled to show success message');
+                                        // Instant scroll (no smooth) for better reliability
+                                        window.scrollTo(0, scrollTarget);
+                                        
+                                        console.log('Scrolled to form top. Target:', scrollTarget, 'Current:', window.pageYOffset);
                                     }
-                                }, 300); // Delay to ensure message is rendered
+                                }
+                                
+                                // Try multiple times to ensure it works
+                                setTimeout(scrollToFormTop, 200);
+                                setTimeout(scrollToFormTop, 400);
+                                setTimeout(scrollToFormTop, 600);
+                                setTimeout(scrollToFormTop, 800);
                             }
                             
                             // Optional: Track with analytics
@@ -1671,6 +1677,25 @@
                                     form_name: 'Contact Us Page',
                                     form_id: 'rU3lt5iV9NYWLbx3vvkC'
                                 });
+                            }
+                        }
+                        
+                        // Also listen for any iframe height changes (when message appears)
+                        if (window.innerWidth <= 768 && (event.data.height || event.data.frameHeight)) {
+                            const formElement = document.querySelector('.contact-form');
+                            if (formElement) {
+                                const formRect = formElement.getBoundingClientRect();
+                                const absoluteTop = window.pageYOffset + formRect.top;
+                                const navHeight = 80;
+                                const scrollTarget = absoluteTop - navHeight;
+                                
+                                // If we're scrolled past the form top, scroll back up
+                                if (window.pageYOffset > scrollTarget + 50) {
+                                    setTimeout(function() {
+                                        window.scrollTo(0, scrollTarget);
+                                        console.log('Adjusted scroll after height change');
+                                    }, 100);
+                                }
                             }
                         }
                     }
