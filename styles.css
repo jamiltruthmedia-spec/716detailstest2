@@ -332,6 +332,15 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Performance optimizations */
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    /* Smooth playback */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
 }
 
 .hero-content {

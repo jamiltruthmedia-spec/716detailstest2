@@ -69,6 +69,8 @@
     
     <!-- Preload Critical Resources -->
     <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="hero-video-720p.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="hero-poster.jpg" as="image">
     <link rel="preload" href="Homepage Services images/full detail.webp" as="image">
     <link rel="preload" href="Homepage Services images/ceramic coating.webp" as="image">
     <link rel="preload" href="Homepage Services images/mobiledetail.webp" as="image">
@@ -83,7 +85,7 @@
         "@type": "AutoRepair",
         "@id": "https://www.716details.net/#business",
         "name": "716 Details",
-        "alternateName": "716 Details Auto Detailing",
+        "alternateName": "716 Details Car Detailing",
         "description": "Niagara County's luxury car detailing service specializing in ceramic coating, paint correction, and mobile detailing for discerning vehicle owners.",
         "url": "https://www.716details.net",
         "logo": "https://www.716details.net/images/716-details-logo.jpg",
@@ -93,7 +95,7 @@
             "https://www.716details.net/images/mobile-detailing-van.jpg"
         ],
         "telephone": "+17164050316",
-        "email": "info@716details.net",
+        "email": "info@716detailing.com",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "4689 Model City Rd",
@@ -394,7 +396,7 @@
         "logo": "https://www.716details.net/images/716-details-logo.jpg",
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+1-716-405-0316",
+            "telephone": "+17164050316",
             "contactType": "customer service",
             "areaServed": "US",
             "availableLanguage": "English"
@@ -413,7 +415,7 @@
         "description": "Niagara County's premier luxury car detailing service offering mobile detailing, ceramic coating, paint correction, and comprehensive automotive care throughout Western New York.",
         "url": "https://www.716details.net",
         "telephone": "+17164050316",
-        "email": "info@716details.net",
+        "email": "info@716detailing.com",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "4689 Model City Rd",
@@ -600,8 +602,12 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-background">
-            <video autoplay muted loop>
-                <source src="hero-video.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline preload="metadata" poster="hero-poster.jpg">
+                <source src="hero-video-1080p.mp4" type="video/mp4" media="(min-width: 1200px)">
+                <source src="hero-video-720p.mp4" type="video/mp4" media="(min-width: 768px)">
+                <source src="hero-video-480p.mp4" type="video/mp4">
+                <!-- Fallback for browsers that don't support video -->
+                <img src="hero-poster.jpg" alt="716 Details - Luxury Car Detailing Service" style="width: 100%; height: 100%; object-fit: cover;">
             </video>
         </div>
         <div class="container">
@@ -951,7 +957,7 @@
                 <div class="contact-info-card">
                     <h3>📞 Contact Us</h3>
                     <p><strong>Phone:</strong> <a href="tel:7164050316">(716) 405-0316</a></p>
-                    <p><strong>Email:</strong> <a href="mailto:info@716details.net">info@716details.net</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@716detailing.com">info@716detailing.com</a></p>
                     <p><em>Call or text for immediate service</em></p>
                 </div>
                 <div class="contact-info-card">
@@ -979,7 +985,7 @@
                     <div class="footer-contact">
                         <p>📍 4689 Model City Rd, Lewiston, NY 14092</p>
                         <p>📞 <a href="tel:7164050316">(716) 405-0316</a></p>
-                        <p>📧 <a href="mailto:info@716details.net">info@716details.net</a></p>
+                        <p>📧 <a href="mailto:info@716detailing.com">info@716detailing.com</a></p>
                         <p>🕒 Service Hours: (By Appointment)</p>
                         <p>Monday: 8AM-9PM</p>
                         <p>Tuesday: 8AM-9PM</p>
