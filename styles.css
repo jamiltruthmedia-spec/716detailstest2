@@ -708,10 +708,11 @@ a {
     max-width: 1200px;
     height: calc(100% - 80px);
     background: transparent;
-    border: 2px solid rgba(79, 124, 255, 0.3);
+    border: none;
     box-shadow: 
-        0 0 30px rgba(79, 124, 255, 0.4),
-        inset 0 0 30px rgba(79, 124, 255, 0.1);
+        0 0 20px rgba(79, 124, 255, 0.15),
+        0 0 40px rgba(79, 124, 255, 0.08),
+        0 0 60px rgba(79, 124, 255, 0.05);
     pointer-events: none;
     border-radius: 16px;
     z-index: 1;
@@ -866,10 +867,11 @@ a {
     .reviews-widget-section::before {
         width: calc(100% - 30px);
         height: calc(100% - 60px);
-        border: 2px solid rgba(79, 124, 255, 0.3);
+        border: none;
         box-shadow: 
-            0 0 20px rgba(79, 124, 255, 0.3),
-            inset 0 0 20px rgba(79, 124, 255, 0.1);
+            0 0 15px rgba(79, 124, 255, 0.12),
+            0 0 30px rgba(79, 124, 255, 0.06),
+            0 0 45px rgba(79, 124, 255, 0.04);
     }
     
     .lc_reviews_widget {
