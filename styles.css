@@ -717,10 +717,14 @@ a {
 .reviews-widget-section .container {
     position: relative;
     z-index: 2;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .lc_reviews_widget {
     width: 100% !important;
+    max-width: 100% !important;
     height: 300px !important;
     min-height: 300px !important;
     max-height: 300px !important;
@@ -739,6 +743,8 @@ a {
     /* Ensure it doesn't cause layout shifts */
     display: block;
     margin: 0 auto;
+    /* Prevent horizontal overflow */
+    box-sizing: border-box;
 }
 
 .lc_reviews_widget:hover {
@@ -795,6 +801,21 @@ a {
 /* Hide loading spinner when widget loads */
 .lc_reviews_widget:not([style*="opacity: 0"]) ~ .reviews-widget-section::after {
     display: none;
+}
+
+/* Desktop reviews widget optimization */
+@media (min-width: 769px) {
+    .lc_reviews_widget {
+        max-width: 100% !important;
+        width: 100% !important;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+    
+    .reviews-widget-section .container {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
 }
 
 /* Mobile responsiveness for reviews widget */
