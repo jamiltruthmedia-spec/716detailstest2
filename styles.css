@@ -652,21 +652,23 @@ a {
 /* About Section */
 /* Reviews Widget Section */
 .reviews-widget-section {
-    padding: 60px 0;
+    padding: 80px 0;
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    margin: 40px 0;
 }
 
 .reviews-widget-section::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(79, 124, 255, 0.1) 0%, rgba(79, 124, 255, 0.05) 50%, rgba(79, 124, 255, 0.1) 100%);
+    top: -40px;
+    left: -20px;
+    right: -20px;
+    bottom: -40px;
+    background: linear-gradient(45deg, rgba(79, 124, 255, 0.08) 0%, rgba(79, 124, 255, 0.03) 50%, rgba(79, 124, 255, 0.08) 100%);
     pointer-events: none;
+    border-radius: 20px;
 }
 
 .reviews-widget-section .container {
@@ -680,20 +682,24 @@ a {
     border: none !important;
     border-radius: 12px;
     box-shadow: 
-        0 0 30px rgba(79, 124, 255, 0.3),
-        0 0 60px rgba(79, 124, 255, 0.2),
-        0 0 90px rgba(79, 124, 255, 0.1);
+        0 0 20px rgba(79, 124, 255, 0.2),
+        0 0 40px rgba(79, 124, 255, 0.15),
+        0 0 60px rgba(79, 124, 255, 0.1);
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     overflow: hidden;
+    /* Fix mobile scrolling issues */
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+    pointer-events: auto;
 }
 
 .lc_reviews_widget:hover {
     box-shadow: 
-        0 0 40px rgba(79, 124, 255, 0.4),
-        0 0 80px rgba(79, 124, 255, 0.3),
-        0 0 120px rgba(79, 124, 255, 0.2);
+        0 0 25px rgba(79, 124, 255, 0.25),
+        0 0 50px rgba(79, 124, 255, 0.2),
+        0 0 75px rgba(79, 124, 255, 0.15);
     transform: translateY(-2px);
 }
 
@@ -717,12 +723,38 @@ a {
 /* Mobile responsiveness for reviews widget */
 @media (max-width: 768px) {
     .reviews-widget-section {
-        padding: 40px 0;
+        padding: 60px 0;
+        margin: 30px 0;
+    }
+    
+    .reviews-widget-section::before {
+        top: -30px;
+        left: -15px;
+        right: -15px;
+        bottom: -30px;
     }
     
     .lc_reviews_widget {
         min-height: 350px;
         border-radius: 8px;
+        /* Enhanced mobile touch handling */
+        touch-action: pan-y;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+    }
+}
+
+/* Additional mobile touch fixes */
+@media (max-width: 768px) {
+    .reviews-widget-section {
+        /* Allow scrolling through the section */
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+    }
+    
+    /* Ensure parent containers don't interfere with scrolling */
+    .reviews-widget-section .container {
+        touch-action: pan-y;
     }
 }
 
