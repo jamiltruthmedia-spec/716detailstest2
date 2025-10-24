@@ -816,25 +816,33 @@ a {
 
 /* Desktop reviews widget optimization */
 @media (min-width: 769px) {
-    .lc_reviews_widget {
-        max-width: 100% !important;
-        width: 100% !important;
-        overflow-x: hidden !important;
-        box-sizing: border-box;
-        /* Force content to fit */
-        transform: scale(0.95);
-        transform-origin: top left;
-    }
-    
-    .reviews-widget-wrapper {
-        max-width: 100%;
-        overflow: hidden;
-        position: relative;
+    .reviews-widget-section {
+        overflow-x: hidden;
+        padding: 60px 20px;
     }
     
     .reviews-widget-section .container {
+        max-width: 1200px;
+        overflow: hidden;
+        padding: 0 20px;
+    }
+    
+    .reviews-widget-wrapper {
+        width: 100%;
         max-width: 100%;
-        overflow-x: hidden;
+        overflow: hidden;
+        position: relative;
+        margin: 0 auto;
+    }
+    
+    .lc_reviews_widget {
+        width: calc(100% - 40px) !important;
+        max-width: calc(100% - 40px) !important;
+        margin: 0 20px !important;
+        overflow-x: hidden !important;
+        overflow-y: hidden !important;
+        box-sizing: border-box !important;
+        display: block !important;
     }
 }
 
