@@ -745,8 +745,8 @@ a {
     backdrop-filter: none !important;
     transition: all 0.3s ease;
     overflow: hidden !important;
-    /* Fix mobile scrolling issues - allow page scrolling through iframe */
-    pointer-events: none;
+    /* Allow interactions on desktop */
+    pointer-events: auto;
     /* Ensure it doesn't cause layout shifts */
     display: block;
     margin: 0 auto;
@@ -832,6 +832,8 @@ a {
         overflow-y: hidden !important;
         box-sizing: border-box !important;
         display: block !important;
+        /* Ensure interactions work on desktop */
+        pointer-events: auto !important;
     }
 }
 
