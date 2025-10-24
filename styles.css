@@ -696,7 +696,7 @@ a {
     position: relative;
     overflow: hidden;
     margin: 40px 0;
-    min-height: 400px;
+    min-height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -733,9 +733,8 @@ a {
 .lc_reviews_widget {
     width: 100% !important;
     max-width: 100% !important;
-    height: 300px !important;
-    min-height: 300px !important;
-    max-height: 300px !important;
+    height: 500px !important;
+    min-height: 500px !important;
     border: none !important;
     border-radius: 12px;
     box-shadow: 
@@ -753,9 +752,6 @@ a {
     margin: 0 auto;
     /* Prevent horizontal overflow */
     box-sizing: border-box;
-    /* Force iframe content to fit */
-    transform: scale(1);
-    transform-origin: top left;
 }
 
 .lc_reviews_widget:hover {
@@ -884,9 +880,8 @@ a {
     }
     
     .lc_reviews_widget {
-        height: 250px !important;
-        min-height: 250px !important;
-        max-height: 250px !important;
+        height: 400px !important;
+        min-height: 400px !important;
         border-radius: 8px;
         /* Allow page scrolling through iframe on mobile */
         pointer-events: none;
