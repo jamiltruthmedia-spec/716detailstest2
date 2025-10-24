@@ -3,12 +3,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-width: 100%;
 }
 
 html {
     width: 100%;
     max-width: 100vw;
     overflow-x: hidden;
+}
+
+/* Ensure no element can cause horizontal overflow */
+* {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 body {
@@ -25,6 +33,8 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Accessibility - Screen Reader Only */
@@ -103,6 +113,8 @@ a {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .nav-logo a {
@@ -357,6 +369,8 @@ a {
     z-index: 2;
     max-width: 900px;
     padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .hero-content h1 {
