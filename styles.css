@@ -721,20 +721,20 @@ a {
     background: #0a0a0a;
     position: relative;
     border-radius: 16px;
-    padding: 0;
-    overflow: hidden;
+    padding: var(--borderWidth);
+    overflow: visible;
 }
 
 .gradient-border:after {
     content: '';
     position: absolute;
-    top: calc(-1 * var(--borderWidth));
-    left: calc(-1 * var(--borderWidth));
-    height: calc(100% + var(--borderWidth) * 2);
-    width: calc(100% + var(--borderWidth) * 2);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-    border-radius: calc(2 * var(--borderWidth));
-    z-index: 1;
+    border-radius: 16px;
+    z-index: -1;
     animation: animatedgradient 3s ease alternate infinite;
     background-size: 300% 300%;
     /* Add glowing effect */
@@ -938,9 +938,16 @@ a {
     /* Mobile gradient border */
     .gradient-border {
         --borderWidth: 6px;
+        padding: var(--borderWidth);
+        overflow: visible;
     }
     
     .gradient-border:after {
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 12px;
         box-shadow: 
             0 0 20px rgba(247, 149, 51, 0.5),
             0 0 40px rgba(243, 112, 85, 0.3),
