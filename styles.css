@@ -722,6 +722,14 @@ a {
     box-sizing: border-box;
 }
 
+.reviews-widget-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+
 .lc_reviews_widget {
     width: 100% !important;
     max-width: 100% !important;
@@ -737,7 +745,7 @@ a {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
-    overflow: hidden;
+    overflow: hidden !important;
     /* Fix mobile scrolling issues - allow page scrolling through iframe */
     pointer-events: none;
     /* Ensure it doesn't cause layout shifts */
@@ -745,6 +753,9 @@ a {
     margin: 0 auto;
     /* Prevent horizontal overflow */
     box-sizing: border-box;
+    /* Force iframe content to fit */
+    transform: scale(1);
+    transform-origin: top left;
 }
 
 .lc_reviews_widget:hover {
@@ -808,8 +819,17 @@ a {
     .lc_reviews_widget {
         max-width: 100% !important;
         width: 100% !important;
-        overflow-x: hidden;
+        overflow-x: hidden !important;
         box-sizing: border-box;
+        /* Force content to fit */
+        transform: scale(0.95);
+        transform-origin: top left;
+    }
+    
+    .reviews-widget-wrapper {
+        max-width: 100%;
+        overflow: hidden;
+        position: relative;
     }
     
     .reviews-widget-section .container {
