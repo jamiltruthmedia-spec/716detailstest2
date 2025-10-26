@@ -680,7 +680,7 @@ a {
 /* Reviews Widget Section */
 .reviews-widget-section {
     padding: 60px 20px;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    background: #000000;
     position: relative;
     overflow: visible;
     margin: 40px 0;
