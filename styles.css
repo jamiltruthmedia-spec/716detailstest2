@@ -706,31 +706,26 @@ a {
 /* Animated Gradient Border */
 .gradient-border {
     --borderWidth: 5px;
-    background: #0a0a0a;
     position: relative;
-    border-radius: calc(2 * var(--borderWidth));
-    padding: 0;
-    overflow: visible;
-}
-
-.gradient-border:after {
-    content: '';
-    position: absolute;
-    top: calc(-1 * var(--borderWidth));
-    left: calc(-1 * var(--borderWidth));
-    height: calc(100% + var(--borderWidth) * 2);
-    width: calc(100% + var(--borderWidth) * 2);
+    border-radius: 16px;
+    padding: var(--borderWidth);
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-    border-radius: calc(2 * var(--borderWidth));
-    z-index: -1;
-    animation: animatedgradient 3s ease alternate infinite;
     background-size: 300% 300%;
-    /* Add glowing effect */
+    animation: animatedgradient 3s ease alternate infinite;
     box-shadow: 
         0 0 30px rgba(247, 149, 51, 0.6),
         0 0 60px rgba(243, 112, 85, 0.4),
         0 0 90px rgba(239, 78, 123, 0.3),
         0 0 120px rgba(161, 102, 171, 0.2);
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: var(--borderWidth);
+    background: #0a0a0a;
+    border-radius: calc(16px - var(--borderWidth));
+    z-index: 0;
 }
 
 @keyframes animatedgradient {
@@ -796,7 +791,7 @@ a {
     /* Prevent horizontal overflow */
     box-sizing: border-box;
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
 
@@ -920,27 +915,23 @@ a {
         display: block;
         margin: 0 auto;
         position: relative;
-        z-index: 2;
+        z-index: 1;
     }
     
     /* Mobile gradient border */
     .gradient-border {
         --borderWidth: 4px;
-        padding: 0;
-        overflow: visible;
-    }
-    
-    .gradient-border:after {
-        top: calc(-1 * var(--borderWidth));
-        left: calc(-1 * var(--borderWidth));
-        height: calc(100% + var(--borderWidth) * 2);
-        width: calc(100% + var(--borderWidth) * 2);
-        border-radius: calc(2 * var(--borderWidth));
+        padding: var(--borderWidth);
         box-shadow: 
             0 0 20px rgba(247, 149, 51, 0.5),
             0 0 40px rgba(243, 112, 85, 0.3),
             0 0 60px rgba(239, 78, 123, 0.2),
             0 0 80px rgba(161, 102, 171, 0.1);
+    }
+    
+    .gradient-border::before {
+        inset: var(--borderWidth);
+        border-radius: calc(12px - var(--borderWidth));
     }
     
     /* Fix mobile navigation overflow */
