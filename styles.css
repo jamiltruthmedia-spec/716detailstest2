@@ -705,23 +705,23 @@ a {
 
 /* Animated Gradient Border */
 .gradient-border {
-    --borderWidth: 8px;
+    --borderWidth: 5px;
     background: #0a0a0a;
     position: relative;
-    border-radius: 16px;
-    padding: var(--borderWidth);
+    border-radius: calc(2 * var(--borderWidth));
+    padding: 0;
     overflow: visible;
 }
 
 .gradient-border:after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-    border-radius: 16px;
+    border-radius: calc(2 * var(--borderWidth));
     z-index: -1;
     animation: animatedgradient 3s ease alternate infinite;
     background-size: 300% 300%;
@@ -925,17 +925,17 @@ a {
     
     /* Mobile gradient border */
     .gradient-border {
-        --borderWidth: 6px;
-        padding: var(--borderWidth);
+        --borderWidth: 4px;
+        padding: 0;
         overflow: visible;
     }
     
     .gradient-border:after {
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        border-radius: 12px;
+        top: calc(-1 * var(--borderWidth));
+        left: calc(-1 * var(--borderWidth));
+        height: calc(100% + var(--borderWidth) * 2);
+        width: calc(100% + var(--borderWidth) * 2);
+        border-radius: calc(2 * var(--borderWidth));
         box-shadow: 
             0 0 20px rgba(247, 149, 51, 0.5),
             0 0 40px rgba(243, 112, 85, 0.3),
