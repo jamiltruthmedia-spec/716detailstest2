@@ -882,8 +882,8 @@ a {
     }
     
     .lc_reviews_widget {
-        height: 380px !important;
-        min-height: 380px !important;
+        height: 350px !important;
+        min-height: 350px !important;
         border-radius: 8px;
         /* Allow page scrolling through iframe on mobile */
         pointer-events: none;
