@@ -863,8 +863,8 @@ a {
     }
     
     .reviews-widget-section {
-        padding: 5px 10px;
-        margin: 5px 0;
+        padding: 25px 10px;
+        margin: 15px 0;
         overflow: visible;
         max-width: 100vw;
         box-sizing: border-box;
