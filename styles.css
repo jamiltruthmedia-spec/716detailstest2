@@ -879,13 +879,11 @@ a {
     .reviews-widget-wrapper {
         max-width: 100%;
         box-sizing: border-box;
-        overflow: visible;
-        min-height: 410px;
     }
     
     .lc_reviews_widget {
-        height: 400px !important;
-        min-height: 400px !important;
+        height: 380px !important;
+        min-height: 380px !important;
         border-radius: 8px;
         /* Allow page scrolling through iframe on mobile */
         pointer-events: none;
@@ -904,8 +902,6 @@ a {
         padding: var(--borderWidth);
         max-width: 100%;
         box-sizing: border-box;
-        overflow: visible;
-        min-height: 410px;
     }
     
     .gradient-border::before {
