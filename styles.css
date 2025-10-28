@@ -879,11 +879,14 @@ a {
     .reviews-widget-wrapper {
         max-width: 100%;
         box-sizing: border-box;
+        overflow: visible;
+        min-height: 350px;
     }
     
     .lc_reviews_widget {
-        height: 320px !important;
-        min-height: 320px !important;
+        height: 340px !important;
+        min-height: 340px !important;
+        max-height: 340px !important;
         border-radius: 8px;
         /* Allow page scrolling through iframe on mobile */
         pointer-events: none;
@@ -894,6 +897,7 @@ a {
         position: relative;
         z-index: 1;
         box-sizing: border-box;
+        overflow: visible !important;
     }
     
     /* Mobile gradient border */
@@ -902,6 +906,8 @@ a {
         padding: var(--borderWidth);
         max-width: 100%;
         box-sizing: border-box;
+        overflow: visible;
+        min-height: 350px;
     }
     
     .gradient-border::before {
