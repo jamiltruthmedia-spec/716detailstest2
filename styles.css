@@ -863,8 +863,8 @@ a {
     }
     
     .reviews-widget-section {
-        padding: 25px 10px;
-        margin: 15px 0;
+        padding: 5px 10px;
+        margin: 5px 0;
         overflow: visible;
         max-width: 100vw;
         box-sizing: border-box;
@@ -882,8 +882,8 @@ a {
     }
     
     .lc_reviews_widget {
-        height: 270px !important;
-        min-height: 270px !important;
+        height: 290px !important;
+        min-height: 290px !important;
         border-radius: 8px;
         /* Allow page scrolling through iframe on mobile */
         pointer-events: none;
