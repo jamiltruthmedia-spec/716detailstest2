@@ -1234,6 +1234,10 @@ a {
     background: #111111;
 }
 
+.service-packages .container {
+    overflow: visible;
+}
+
 .service-packages h2 {
     text-align: center;
     font-size: 3rem;
@@ -2962,6 +2966,15 @@ input:focus, select:focus, textarea:focus {
 
     .package-card.featured .package-header {
         padding-right: 120px;
+    }
+
+    /* Remove scale transform on mobile/tablet to prevent horizontal scroll */
+    .package-card.featured {
+        transform: scale(1);
+    }
+
+    .package-card.featured:hover {
+        transform: scale(1) translateY(-10px);
     }
 
     .areas-grid {
