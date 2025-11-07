@@ -1272,16 +1272,16 @@ a {
 
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Desktop: Clean 3-column layout */
+/* Desktop: Clean 2-column layout for 2x2 and 2x3 grids */
 @media (min-width: 1200px) {
     .benefits-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 3rem;
     }
 }
