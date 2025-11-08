@@ -912,7 +912,7 @@ a {
     }
     
     .reviews-widget-section {
-        padding: 20px 0;
+        padding: 20px 10px;
         margin: 15px 0;
         overflow: visible;
         max-width: 100vw;
@@ -921,7 +921,7 @@ a {
     }
     
     .reviews-widget-section .container {
-        padding: 0;
+        padding: 0 10px;
         max-width: 100%;
         width: 100%;
         box-sizing: border-box;
@@ -951,22 +951,27 @@ a {
         box-sizing: border-box;
     }
     
-    /* Mobile gradient border - REMOVED to prevent width reduction */
+    /* Mobile gradient border - Keep the animated border effect */
     .gradient-border {
-        --borderWidth: 0px;
-        padding: 0;
+        --borderWidth: 5px;
+        padding: var(--borderWidth);
         max-width: 100%;
         width: 100%;
         box-sizing: border-box;
         overflow: visible;
         min-height: 650px;
-        margin: 0;
-        border-radius: 0;
+        margin: 0 auto;
+        border-radius: 12px;
+        /* Keep the animated gradient background */
+        background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+        background-size: 300% 300%;
+        animation: animatedgradient 3s ease alternate infinite;
     }
     
     .gradient-border::before {
         inset: var(--borderWidth);
         border-radius: calc(12px - var(--borderWidth));
+        background: #0a0a0a;
     }
     
     /* Fix mobile navigation overflow */
