@@ -1367,6 +1367,7 @@ a {
     gap: 2.5rem;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 2rem 1rem;
 }
 
 /* Desktop: Clean 3-column layout for packages */
@@ -1649,6 +1650,7 @@ a {
     gap: 2.5rem;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 2rem 1rem;
 }
 
 /* Desktop: Clean 3-column layout */
@@ -2252,6 +2254,7 @@ a {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    padding: 2rem 1rem;
 }
 
 /* Desktop: Clean 2-column layout for even 2x2 grids */
@@ -2277,6 +2280,7 @@ a {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    padding: 2rem 1rem;
 }
 
 /* Desktop: Clean 3-column layout */
@@ -2301,6 +2305,7 @@ a {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    padding: 2rem 1rem;
 }
 
 /* Desktop: Clean 2-column layout for equipment */
@@ -2493,10 +2498,12 @@ a {
     .results-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+        padding: 2rem 15px;
     }
     
     .equipment-grid {
         grid-template-columns: 1fr;
+        padding: 2rem 15px;
     }
     
     .gallery-image,
@@ -3365,6 +3372,7 @@ input:focus, select:focus, textarea:focus {
 
     .packages-grid {
         grid-template-columns: 1fr;
+        padding: 2rem 15px;
     }
 
     .packages-grid.single-package {
