@@ -1569,6 +1569,7 @@ a {
     gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 2rem 1rem;
 }
 
 /* Desktop: Clean 3-column layout */
@@ -2837,6 +2838,7 @@ input:focus, select:focus, textarea:focus {
     gap: 2.5rem;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 2rem 1rem;
 }
 
 /* Desktop: Clean 3-column layout */
@@ -3441,6 +3443,24 @@ input:focus, select:focus, textarea:focus {
     .benefits-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    .process-steps {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 15px;
+    }
+    
+    .issues-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 15px;
+    }
+    
+    .related-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 15px;
     }
 }
 
